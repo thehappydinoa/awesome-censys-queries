@@ -2,6 +2,12 @@
 
 A collection of fascinating and bizarre [Censys Search](https://search.censys.io) queries.
 
+<!-- markdownlint-disable MD033 -->
+<center>
+    <img src="./images/search.censys.io.png" alt="Censys Search" width="500px" />
+</center>
+<!-- markdownlint-enable MD033 -->
+
 ## Table of Contents
 
 - [Industrial Control Systems](#industrial-control-systems)
@@ -42,13 +48,21 @@ services.http.response.headers.Www_Authenticate: `Basic realm= "Mein Automower (
 #### Cobalt Strike Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.certificate%3A+%7B%2264257fc0fac31c01a5ccd816c73ea86e639260da1604d04db869bb603c2886e6%22%2C+%2287f2085c32b6a2cc709b365f55873e207a9caa10bffecf2fd16d3cf9d94d390c%22%7D+or+services.tls.certificates.leaf_data.issuer.common_name%3A+%22Major+Cobalt+Strike%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22Major+Cobalt+Strike%22)
 
 ```dsl
-services.certificate: {"64257fc0fac31c01a5ccd816c73ea86e639260da1604d04db869bb603c2886e6", "87f2085c32b6a2cc709b365f55873e207a9caa10bffecf2fd16d3cf9d94d390c"} or services.tls.certificates.leaf_data.issuer.common_name: "Major Cobalt Strike" or services.tls.certificates.leaf_data.subject.common_name: "Major Cobalt Strike"
+services.certificate: {
+    "64257fc0fac31c01a5ccd816c73ea86e639260da1604d04db869bb603c2886e6",
+    "87f2085c32b6a2cc709b365f55873e207a9caa10bffecf2fd16d3cf9d94d390c"
+}
+or services.tls.certificates.leaf_data.issuer.common_name: "Major Cobalt Strike"
+or services.tls.certificates.leaf_data.subject.common_name: "Major Cobalt Strike"
 ```
 
 #### Metasploit Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Metasploit%22+and+%28services.tls.certificates.leaf_data.subject.organization%3A+%22Rapid7%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22MetasploitSelfSignedCA%22%29)
 
 ```dsl
-services.http.response.html_title: "Metasploit" and (services.tls.certificates.leaf_data.subject.organization: "Rapid7" or services.tls.certificates.leaf_data.subject.common_name: "MetasploitSelfSignedCA")
+services.http.response.html_title: "Metasploit" and (
+    services.tls.certificates.leaf_data.subject.organization: "Rapid7"
+    or services.tls.certificates.leaf_data.subject.common_name: "MetasploitSelfSignedCA"
+)
 ```
 
 ### Random Services
