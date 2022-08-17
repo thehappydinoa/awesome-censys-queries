@@ -3,9 +3,9 @@
 A collection of fascinating and bizarre [Censys Search](https://search.censys.io) queries.
 
 <!-- markdownlint-disable MD033 -->
-<center>
+<p align="center">
     <img src="./images/search.censys.io.png" alt="Censys Search" width="500px" />
-</center>
+</p>
 <!-- markdownlint-enable MD033 -->
 
 ## Table of Contents
@@ -43,23 +43,22 @@ services.tls.certificates.leaf_data.issuer.common_name: "Roomba CA"
 services.http.response.headers.Www_Authenticate: `Basic realm= "Mein Automower (Robonect Hx+)"`
 ```
 
-
-#### WinAQMS Environmental Monitor [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=services.banner%3A%22WinAQMS+Data+Server%22) 
+#### WinAQMS Environmental Monitor [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.banner%3A+%22WinAQMS+Data+Server%22)
 
 ```dsl
-services.banner:"WinAQMS Data Server"
+services.banner: "WinAQMS Data Server"
 ```
 
-#### [Emerson Site Supervisor](https://www.emerson.com/en-us/site-supervisor-5385648A) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.http.response.html_title%3D%22Emerson+Site+Supervisor%22)
+#### [Emerson Site Supervisor](https://www.emerson.com/en-us/site-supervisor-5385648A) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Emerson+Site+Supervisor%22)
 
 ```dsl
-services.http.response.html_title="Emerson Site Supervisor"
+services.http.response.html_title: "Emerson Site Supervisor"
 ```
 
-#### [Nethix Wireless Controller](https://nethix.com/en/) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.http.response.headers.set_cookie%3A+NethixSession)
+#### [Nethix Wireless Controller](https://nethix.com/en/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.set_cookie%3A+%22NethixSession%22)
 
 ```dsl
-services.http.response.headers.set_cookie: NethixSession
+services.http.response.headers.set_cookie: "NethixSession"
 ```
 
 ### Security Applications
@@ -92,76 +91,76 @@ services.http.response.html_title: "Metasploit" and (
 services.http.response.html_title: "shell2http"
 ```
 
-#### Busybox Shells [&#x2192;](https://search.censys.io/search?resource=hosts&q=%28services.banner%3A+%22Enter+%27help%27+for+a+list+of+built-in+commands%22+and+services.truncated%3A+false%29+)
+#### Busybox Shells [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.banner%3A+%22Enter+%27help%27+for+a+list+of+built-in+commands%22+and+services.service_name%3A+TELNET%29+and+services.truncated%3A+false)
 
 ```dsl
-(same_service(services.banner: "Enter 'help' for a list of built-in commands" and services.service_name=TELNET) and services.truncated: false)
+same_service(services.banner: "Enter 'help' for a list of built-in commands" and services.service_name: TELNET) and services.truncated: false
 ```
 
-#### Services Listening on Port 22 that are not SSH [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=same_service%28not+services.service_name%3D%7BSSH%7D+and+services.port%3D22+and+not+services.banner%3A+%7B%22Connection+refused%22%2C+%22SSH-%22%2C+%22Exceeded+MaxStartups%22%2C+%22Too+many+users%22%2C+%22Connection+closed+by+server%22%7D%29+and+services.truncated%3Dfalse)
+#### Services Listening on Port 22 that are not SSH [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28not+services.service_name%3A+%7BSSH%7D+and+services.port%3A+22+and+not+services.banner%3A+%7B%22Connection+refused%22%2C+%22SSH-%22%2C+%22Exceeded+MaxStartups%22%2C+%22Too+many+users%22%2C+%22Connection+closed+by+server%22%7D%29+and+services.truncated%3A+false)
 
 ```dsl
 same_service(
-    not services.service_name={SSH}
-    and services.port=22 
+    not services.service_name: {SSH}
+    and services.port: 22
     and not services.banner: {"Connection refused", "SSH-", "Exceeded MaxStartups", "Too many users", "Connection closed by server"}
 )
-and services.truncated=false
+and services.truncated: false
 ```
 
-#### Services Listening on 80 or 443 that are not HTTP or HTTPS (or UNKNOWN with TLS) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=not+same_service%28+services.port%3D443+and+services.name%3DUNKNOWN++and+services.tls.certificates.leaf_data.subject_dn%3A*+%29+and+same_service%28+++++services.port%3D%7B80%2C443%7D+++++and+not+services.service_name%3D%7BKUBERNETES%2CANYCONNECT%2COPENVPN%2CHTTP%7D++and+not+services.banner%3A+%E2%80%9CHTTP%2F%E2%80%9D+%29)
+#### Services Listening on 80 or 443 that are not HTTP or HTTPS (or UNKNOWN with TLS) [&#x2192;](https://search.censys.io/search?resource=hosts&q=not+same_service%28services.port%3A+443+and+services.name%3A+UNKNOWN+and+services.tls.certificates.leaf_data.subject_dn%3A+*+%29+and+same_service%28services.port%3A+%7B80%2C+443%7D+and+not+services.service_name%3A+%7BKUBERNETES%2C+ANYCONNECT%2C+OPENVPN%2C+HTTP%7D+and+not+services.banner%3A+%E2%80%9CHTTP%2F%E2%80%9D+%29++and+services.truncated%3A+false)
 
 ```dsl
 not same_service(
-    services.port=443
-    and services.name=UNKNOWN
-    and services.tls.certificates.leaf_data.subject_dn:*
-) 
+    services.port: 443
+    and services.name: UNKNOWN
+    and services.tls.certificates.leaf_data.subject_dn: *
+)
 and same_service(
-    services.port={80,443} 
-    and not services.service_name={KUBERNETES,ANYCONNECT,OPENVPN,HTTP}
+    services.port: {80, 443}
+    and not services.service_name: {KUBERNETES, ANYCONNECT, OPENVPN, HTTP}
     and not services.banner: “HTTP/”
-) 
-and services.truncated=false
+)
+and services.truncated: false
 ```
 
-#### Services Listening on 53 that are not DNS [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=EXCLUDE&q=same_service%28services.port%3D53+and+not+services.service_name%3DDNS%29+and+services.truncated%3Dfalse)
+#### Services Listening on 53 that are not DNS [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.port%3A+53+and+not+services.service_name%3A+DNS%29+and+services.truncated%3A+false)
 
 ```dsl
-same_service(services.port=53 and not services.service_name=DNS) and services.truncated=false
+same_service(services.port: 53 and not services.service_name: DNS) and services.truncated: false
 ```
 
-#### Unauthenticated Redis Servers [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.redis.ping_response%3DPONG)
+#### Unauthenticated Redis Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.redis.ping_response%3A+%22PONG%22)
 
 ```dsl
-services.redis.ping_response=PONG
+services.redis.ping_response: "PONG"
 ```
 
-#### Misconfigured Kubernetes Installations [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.kubernetes.pod_names%3A*)
+#### Misconfigured Kubernetes Installations [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.kubernetes.pod_names%3A+*)
 
 ```dsl
-services.kubernetes.pod_names:*
+services.kubernetes.pod_names: *
 ```
 
-#### Directory Listing [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.http.response.html_title%3A+%22Index+of+%2F%22)
+#### Directory Listing [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Index+of+%2F%22)
 
 ```dsl
 services.http.response.html_title: "Index of /"
 ```
 
-#### Hosts that identify as US government or military [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=dns.names%3A+*.gov+or+dns.names%3A+*.mil+or+name%3A+*.gov+or+name%3A+*.mil) 
+#### Hosts that identify as US government or military [&#x2192;](https://search.censys.io/search?resource=hosts&q=dns.names%3A+*.gov+or+dns.names%3A+*.mil+or+name%3A+*.gov+or+name%3A+*.mil)
 
 ```dsl
 dns.names: *.gov or dns.names: *.mil or name: *.gov or name: *.mil
 ```
 
-#### Hosts emitting GNSS payloads [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.banner%3A+%22%24GPRMC%22)
+#### Hosts emitting GNSS payloads [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.banner%3A+%22%24GPRMC%22)
 
 ```dsl
 services.banner: "$GPRMC"
 ```
 
-#### [Mongo Express Admin Interface](https://github.com/mongo-express/mongo-express) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=services.http.response.html_title%3A+%22Home+-+Mongo+Express%22)
+#### [Mongo Express Admin Interface](https://github.com/mongo-express/mongo-express) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Home+-+Mongo+Express%22)
 
 ```dsl
 services.http.response.html_title: "Home - Mongo Express"
