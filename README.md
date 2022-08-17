@@ -125,6 +125,12 @@ same_service(services.port=53 and not services.service_name=DNS) and services.tr
 services.redis.ping_response=PONG
 ```
 
+#### Misconfigured Kubernetes Installations [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.kubernetes.pod_names%3A*)
+
+```dsl
+services.kubernetes.pod_names:*
+```
+
 ## License
 
 [![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
