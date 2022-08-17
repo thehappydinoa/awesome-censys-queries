@@ -131,6 +131,12 @@ services.redis.ping_response=PONG
 services.kubernetes.pod_names:*
 ```
 
+#### Directory Listing [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.http.response.html_title%3A+%22Index+of+%2F%22)
+
+```dsl
+services.http.response.html_title: "Index of /"
+```
+
 ## License
 
 [![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
