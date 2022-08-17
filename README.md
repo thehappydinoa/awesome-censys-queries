@@ -97,13 +97,13 @@ same_service(
 and services.truncated=false
 ```
 
-#### Services Listening on 80 or 443 that are not HTTP or HTTPS (or UNKNOWN with TLS) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=EXCLUDE&q=same_service%28services.port%3D443+and+services.name%3DUNKNOWN+and+not+services.tls.certificates.leaf_data.subject_dn%3A*%29+and+same_service%28services.port%3D%7B80%2C443%7D+and+not+services.service_name%3D%7BKUBERNETES%2CANYCONNECT%2COPENVPN%2CHTTP%7D+and+not+services.banner%3A+%E2%80%9CHTTP%2F%E2%80%9D%29+and+services.truncated%3Dfalse)
+#### Services Listening on 80 or 443 that are not HTTP or HTTPS (or UNKNOWN with TLS) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=not+same_service%28+services.port%3D443+and+services.name%3DUNKNOWN++and+services.tls.certificates.leaf_data.subject_dn%3A*+%29+and+same_service%28+++++services.port%3D%7B80%2C443%7D+++++and+not+services.service_name%3D%7BKUBERNETES%2CANYCONNECT%2COPENVPN%2CHTTP%7D++and+not+services.banner%3A+%E2%80%9CHTTP%2F%E2%80%9D+%29)
 
 ```dsl
-same_service(
+not same_service(
     services.port=443
     and services.name=UNKNOWN
-    and not services.tls.certificates.leaf_data.subject_dn:*
+    and services.tls.certificates.leaf_data.subject_dn:*
 ) 
 and same_service(
     services.port={80,443} 
