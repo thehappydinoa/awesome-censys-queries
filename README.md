@@ -137,6 +137,12 @@ services.kubernetes.pod_names:*
 services.http.response.html_title: "Index of /"
 ```
 
+#### Hosts that identify as US government or military [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=dns.names%3A+*.gov+or+dns.names%3A+*.mil+or+name%3A+*.gov+or+name%3A+*.mil) 
+
+```dsl
+dns.names: *.gov or dns.names: *.mil or name: *.gov or name: *.mil
+```
+
 ## License
 
 [![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
