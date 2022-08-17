@@ -149,6 +149,12 @@ services.http.response.html_title: "Index of /"
 dns.names: *.gov or dns.names: *.mil or name: *.gov or name: *.mil
 ```
 
+#### Hosts emitting GNSS payloads [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.banner%3A+%22%24GPRMC%22)
+
+```dsl
+services.banner: "$GPRMC"
+```
+
 ## License
 
 [![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
