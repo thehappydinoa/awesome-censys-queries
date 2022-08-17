@@ -119,6 +119,12 @@ and services.truncated=false
 same_service(services.port=53 and not services.service_name=DNS) and services.truncated=false
 ```
 
+#### Unauthenticated Redis Servers [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.redis.ping_response%3DPONG)
+
+```dsl
+services.redis.ping_response=PONG
+```
+
 ## License
 
 [![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
