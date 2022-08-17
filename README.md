@@ -56,6 +56,12 @@ services.banner:"WinAQMS Data Server"
 services.http.response.html_title="Emerson Site Supervisor"
 ```
 
+#### [Nethix Wireless Controller](https://nethix.com/en/) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.http.response.headers.set_cookie%3A+NethixSession)
+
+```dsl
+services.http.response.headers.set_cookie: NethixSession
+```
+
 ### Security Applications
 
 #### Cobalt Strike Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.certificate%3A+%7B%2264257fc0fac31c01a5ccd816c73ea86e639260da1604d04db869bb603c2886e6%22%2C+%2287f2085c32b6a2cc709b365f55873e207a9caa10bffecf2fd16d3cf9d94d390c%22%7D+or+services.tls.certificates.leaf_data.issuer.common_name%3A+%22Major+Cobalt+Strike%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22Major+Cobalt+Strike%22)
