@@ -78,20 +78,35 @@ or services.jarm.fingerprint: {
 }
 ```
 
-#### Metasploit Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Metasploit%22+and+%28services.tls.certificates.leaf_data.subject.organization%3A+%22Rapid7%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22MetasploitSelfSignedCA%22%29+or+services.jarm.fingerprint%3A+07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d)
+#### Metasploit Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Metasploit%22+and+%28services.tls.certificates.leaf_data.subject.organization%3A+%22Rapid7%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22MetasploitSelfSignedCA%22%29+or+services.jarm.fingerprint%3A+%7B07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d%2C+07d14d16d21d21d07c42d43d000000f50d155305214cf247147c43c0f1a823%7D)
 
 ```dsl
 services.http.response.html_title: "Metasploit" and (
     services.tls.certificates.leaf_data.subject.organization: "Rapid7"
     or services.tls.certificates.leaf_data.subject.common_name: "MetasploitSelfSignedCA"
 )
-or services.jarm.fingerprint: "07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d"
+or services.jarm.fingerprint: {
+    "07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d",
+    "07d14d16d21d21d07c42d43d000000f50d155305214cf247147c43c0f1a823"
+}
 ```
 
 #### [Merlin C2](https://github.com/Ne0nd0g/merlin) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38)
 
 ```dsl
 services.jarm.fingerprint: "29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38"
+```
+
+#### [Deimos C2](https://github.com/DeimosC2/DeimosC2) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+00000000000000000041d00000041d9535d5979f591ae8e547c5e5743e5b64)
+
+```dsl
+services.jarm.fingerprint: "00000000000000000041d00000041d9535d5979f591ae8e547c5e5743e5b64"
+```
+
+#### [EvilGinx2](https://github.com/kgretzky/evilginx2) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6)
+
+```dsl
+services.jarm.fingerprint: "20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6"
 ```
 
 ### Random Services
@@ -184,3 +199,6 @@ services.http.response.html_title: "Home - Mongo Express"
 ## Credits
 
 - [jakejarvis/awesome-shodan-queries](https://github.com/jakejarvis/awesome-shodan-queries)
+- [woj-ciech/Kamerka-GUI](https://github.com/woj-ciech/Kamerka-GUI)
+- [salesforce/jarm](https://github.com/salesforce/jarm)
+- [cedowens/C2-JARM](https://github.com/cedowens/C2-JARM)
