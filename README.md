@@ -63,7 +63,7 @@ services.http.response.headers.set_cookie: "NethixSession"
 
 ### Security Applications
 
-#### Cobalt Strike Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.certificate%3A+%7B%2264257fc0fac31c01a5ccd816c73ea86e639260da1604d04db869bb603c2886e6%22%2C+%2287f2085c32b6a2cc709b365f55873e207a9caa10bffecf2fd16d3cf9d94d390c%22%7D+or+services.tls.certificates.leaf_data.issuer.common_name%3A+%22Major+Cobalt+Strike%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22Major+Cobalt+Strike%22)
+#### Cobalt Strike Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.certificate%3A+%7B%2264257fc0fac31c01a5ccd816c73ea86e639260da1604d04db869bb603c2886e6%22%2C+%2287f2085c32b6a2cc709b365f55873e207a9caa10bffecf2fd16d3cf9d94d390c%22%7D+or+services.tls.certificates.leaf_data.issuer.common_name%3A+%22Major+Cobalt+Strike%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22Major+Cobalt+Strike%22+or+services.jarm.fingerprint%3A+%7B%2207d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1%22%2C+%2207d14d16d21d21d00042d41d00041de5fb3038104f457d92ba02e9311512c2%22%7D)
 
 ```dsl
 services.certificate: {
@@ -72,15 +72,26 @@ services.certificate: {
 }
 or services.tls.certificates.leaf_data.issuer.common_name: "Major Cobalt Strike"
 or services.tls.certificates.leaf_data.subject.common_name: "Major Cobalt Strike"
+or services.jarm.fingerprint: {
+    "07d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1",
+    "07d14d16d21d21d00042d41d00041de5fb3038104f457d92ba02e9311512c2"
+}
 ```
 
-#### Metasploit Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Metasploit%22+and+%28services.tls.certificates.leaf_data.subject.organization%3A+%22Rapid7%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22MetasploitSelfSignedCA%22%29)
+#### Metasploit Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Metasploit%22+and+%28services.tls.certificates.leaf_data.subject.organization%3A+%22Rapid7%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22MetasploitSelfSignedCA%22%29+or+services.jarm.fingerprint%3A+07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d)
 
 ```dsl
 services.http.response.html_title: "Metasploit" and (
     services.tls.certificates.leaf_data.subject.organization: "Rapid7"
     or services.tls.certificates.leaf_data.subject.common_name: "MetasploitSelfSignedCA"
 )
+or services.jarm.fingerprint: "07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d"
+```
+
+#### [Merlin C2](https://github.com/Ne0nd0g/merlin) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38)
+
+```dsl
+services.jarm.fingerprint: "29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38"
 ```
 
 ### Random Services
