@@ -6,7 +6,6 @@ A collection of fascinating and bizarre [Censys Search](https://search.censys.io
 <p align="center">
     <img src="./images/search.censys.io.png" alt="Censys Search" width="500px" />
 </p>
-<!-- markdownlint-enable MD033 -->
 
 ## Table of Contents
 
@@ -24,11 +23,51 @@ A collection of fascinating and bizarre [Censys Search](https://search.censys.io
 services.tls.certificates.leaf_data.subject.common_name: "Prismview" or services.http.response.headers.server: "Prismview Player"
 ```
 
-#### Gas Station Pump Controllers (ATGs) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.port%3A+10001+and+services.banner%3A+%22IN-TANK+INVENTORY%22%29+or+services.service_name%3A+ATG)
+<details>
+    <summary markdown="span">Screenshot</summary>
+    <img src="./images/prismview.png" alt="Prismview" width="300px" />
+</details>
+
+#### Gas Station Pump Controllers (ATGs) [&#x2192;](https://search.censys.io/search?resource=hosts&q=%28same_service%28port%3A+10001+and+banner%3A+%22IN-TANK+INVENTORY%22%29+or+services.service_name%3A+ATG%29+and+services.truncated%3A+false)
 
 ```dsl
-same_service(services.port: 10001 and services.banner: "IN-TANK INVENTORY") or services.service_name: ATG
+(same_service(port: 10001 and banner: "IN-TANK INVENTORY")
+or services.service_name: ATG) and services.truncated: false
 ```
+
+<details>
+    <summary markdown="span">Screenshot</summary>
+    <img src="./images/atg.png" alt="ATG" width="300px" />
+</details>
+
+#### Electric Vehicle Chargers [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.headers.server%3A+%22gSOAP%2F2.8%22+and+http.response.headers.content_length%3A+583%29)
+
+```dsl
+same_service(http.response.headers.server: "gSOAP/2.8" and http.response.headers.content_length: 583)
+```
+
+#### [Carel PlantVisor](https://www.carel.com/product/plantvisor) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22CAREL+Pl%40ntVisor%22)
+
+```dsl
+services.http.response.html_title: "CAREL Pl@ntVisor"
+```
+
+#### [C4 Max Vehicle GPS](https://wiki.neweagle.net/ProductDocumentation/Telematics/C4MAX_datasheet.pdf) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.banner%3A+%22%5B1m%5B35mWelcome+on+console%22)
+
+```dsl
+services.banner: "[1m[35mWelcome on console"
+```
+
+#### GaugeTech Electricity Meters [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.server%3A+%22EIG+Embedded+Web+Server%22)
+
+```dsl
+services.http.response.headers.server: "EIG Embedded Web Server"
+```
+
+<details>
+    <summary markdown="span">Screenshot</summary>
+    <img src="./images/gaugetech.png" alt="GaugeTech" width="300px" />
+</details>
 
 ### Internet of Things Devices
 
@@ -44,10 +83,10 @@ services.tls.certificates.leaf_data.issuer.common_name: "Roomba CA"
 services.http.response.headers.Www_Authenticate: `Basic realm= "Mein Automower (Robonect Hx+)"`
 ```
 
-#### WinAQMS Environmental Monitor [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.banner%3A+%22WinAQMS+Data+Server%22)
+#### WinAQMS Environmental Monitor [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.banner%3A+%22WinAQMS+Data+Server%22+and+services.truncated%3A+false)
 
 ```dsl
-services.banner: "WinAQMS Data Server"
+services.banner: "WinAQMS Data Server" and services.truncated: false
 ```
 
 #### [Emerson Site Supervisor](https://www.emerson.com/en-us/site-supervisor-5385648A) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Emerson+Site+Supervisor%22)
@@ -55,6 +94,11 @@ services.banner: "WinAQMS Data Server"
 ```dsl
 services.http.response.html_title: "Emerson Site Supervisor"
 ```
+
+<details>
+    <summary markdown="span">Screenshot</summary>
+    <img src="./images/emerson-site-supervisor.png" alt="Emerson" width="500px" />
+</details>
 
 #### [Nethix Wireless Controller](https://nethix.com/en/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.set_cookie%3A+%22NethixSession%22)
 
@@ -148,6 +192,11 @@ services.http.response.html_title: "shell2http"
 ```dsl
 same_service(services.banner: "Enter 'help' for a list of built-in commands" and services.service_name: TELNET) and services.truncated: false
 ```
+
+<details>
+    <summary markdown="span">Screenshot</summary>
+    <img src="./images/busybox.png" alt="Busybox" width="300px" />
+</details>
 
 #### Services Listening on Port 22 that are not SSH [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28not+services.service_name%3A+%7BSSH%7D+and+services.port%3A+22+and+not+services.banner%3A+%7B%22Connection+refused%22%2C+%22SSH-%22%2C+%22Exceeded+MaxStartups%22%2C+%22Too+many+users%22%2C+%22Connection+closed+by+server%22%7D%29+and+services.truncated%3A+false)
 
