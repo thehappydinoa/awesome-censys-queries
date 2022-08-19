@@ -13,6 +13,7 @@ A collection of fascinating and bizarre [Censys Search](https://search.censys.io
 - [Industrial Control Systems](#industrial-control-systems)
 - [Internet of Things Devices](#internet-of-things-devices)
 - [Security Applications](#security-applications)
+- [Databases](#databases)
 - [Random Services](#random-services)
 
 ### Industrial Control Systems
@@ -109,6 +110,14 @@ services.jarm.fingerprint: "00000000000000000041d00000041d9535d5979f591ae8e547c5
 services.jarm.fingerprint: "20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6"
 ```
 
+### Databases
+
+#### [Exposed CouchDB Servers](https://couchdb.apache.org/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body%3A+%27%22couchdb%22%3A+%22Welcome%22%27)
+
+```dsl
+services.http.response.body: '"couchdb": "Welcome"'
+```
+
 ### Random Services
 
 #### shell2http [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=services.http.response.html_title%3A+%22shell2http%22&cursor=eyJBZnRlciI6WyIyMS4yOTIxMzEiLCJBaTJPMzhHWlRtN2ZrUTFCdERPOUp3PT0iXSwiUmV2ZXJzZSI6ZmFsc2UsIlNlZWQiOjB9)
@@ -190,6 +199,24 @@ services.banner: "$GPRMC"
 
 ```dsl
 services.http.response.html_title: "Home - Mongo Express"
+```
+
+#### Misconfigured WordPress [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body%3A+%22The+wp-config.php+creation+script+uses+this+file%22)
+
+```dsl
+services.http.response.body: "The wp-config.php creation script uses this file"
+```
+
+#### [North Korean Subnets](https://www.vox.com/2014/12/22/7435625/north-korea-internet) [&#x2192;](https://search.censys.io/search?resource=hosts&q=ip%3A+%7B175.45.176.0%2F22%2C+210.52.109.0%2F24%2C+77.94.35.0%2F24%7D)
+
+```dsl
+ip: {175.45.176.0/22, 210.52.109.0/24, 77.94.35.0/24}
+```
+
+#### Honepots Hosts [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.truncated%3A+true)
+
+```dsl
+services.truncated: true
 ```
 
 ## License
