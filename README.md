@@ -1,4 +1,9 @@
-# Awesome Censys Queries [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# Awesome Censys Queries
+
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+[![GitHub contributors](https://img.shields.io/github/contributors/thehappydinoa/awesome-censys-queries)](https://github.com/thehappydinoa/awesome-censys-queries/graphs/contributors)
+![GitHub Repo stars](https://img.shields.io/github/stars/thehappydinoa/awesome-censys-queries)
+[![License](https://img.shields.io/github/license/thehappydinoa/awesome-censys-queries)](#license)
 
 A collection of fascinating and bizarre [Censys Search](https://search.censys.io) queries.
 
