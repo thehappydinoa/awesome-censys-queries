@@ -92,6 +92,23 @@ or services.jarm.fingerprint: {
 }
 ```
 
+#### Nessus Scanner Servers [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=services.http.response.headers.server%3DNessusWWW+or+services.tls.certificates.leaf_data.subject.organizational_unit%3A+%22Nessus+Server%22)
+
+```dsl
+services.http.response.headers.server=NessusWWW
+or services.tls.certificates.leaf_data.subject.organizational_unit: "Nessus Server"
+```
+
+#### NTOP Network Analyzers [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=services.http.response.html_title%3D%22Welcome+to+ntopng%22+or+same_service%28services.http.response.html_title%3A+%22Global+Traffic+Statistics%22+and+services.http.response.headers.server%3A+%22ntop%2F*%22%29)
+
+```dsl
+services.http.response.html_title="Welcome to ntopng"
+or same_service(
+    services.http.response.html_title: "Global Traffic Statistics"
+    and services.http.response.headers.server: "ntop/*")
+```
+
+
 #### [Merlin C2](https://github.com/Ne0nd0g/merlin) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38)
 
 ```dsl
@@ -218,6 +235,32 @@ ip: {175.45.176.0/22, 210.52.109.0/24, 77.94.35.0/24}
 ```dsl
 services.truncated: true
 ```
+
+#### [Traefik Dashboards](https://github.com/traefik/traefik) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.request.uri%3A+%22*%2Fdashboard%2F%22+and+services.http.response.html_title%3DTraefik%29)
+
+```dsl
+same_service(services.http.request.uri: "*/dashboard/" and services.http.response.html_title=Traefik)
+```
+
+#### [Weave Scope](https://www.weave.works/oss/scope/) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%22Weave+Scope%22+and+services.http.response.body%3D%22*WEAVEWORKS_CSRF*%22%29)
+
+```dsl
+same_service(services.http.response.html_title="Weave Scope" and services.http.response.body="*WEAVEWORKS_CSRF*")
+```
+
+#### Prometheus Node Exporters [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3A+%22node+exporter%22+and+services.http.response.body%3A+%22%2Fmetrics%22%29)
+
+```dsl
+same_service(services.http.response.html_title: "node exporter" and services.http.response.body: "/metrics")
+```
+
+#### [VictoriaMetrics VMAgent](https://docs.victoriametrics.com/vmagent.html) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=services.http.response.body%3A+%22%3Ch2%3Evmagent%3C%2Fh2%3E%22)
+
+```dsl
+services.http.response.body: "<h2>vmagent</h2>"
+```
+
+
 
 ## License
 
