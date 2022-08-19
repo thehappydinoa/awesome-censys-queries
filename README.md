@@ -92,22 +92,22 @@ or services.jarm.fingerprint: {
 }
 ```
 
-#### Nessus Scanner Servers [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=services.http.response.headers.server%3DNessusWWW+or+services.tls.certificates.leaf_data.subject.organizational_unit%3A+%22Nessus+Server%22)
+#### Nessus Scanner Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.server%3A+%22NessusWWW%22+or+services.tls.certificates.leaf_data.subject.organizational_unit%3A+%22Nessus+Server%22)
 
 ```dsl
-services.http.response.headers.server=NessusWWW
+services.http.response.headers.server: "NessusWWW"
 or services.tls.certificates.leaf_data.subject.organizational_unit: "Nessus Server"
 ```
 
-#### NTOP Network Analyzers [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=services.http.response.html_title%3D%22Welcome+to+ntopng%22+or+same_service%28services.http.response.html_title%3A+%22Global+Traffic+Statistics%22+and+services.http.response.headers.server%3A+%22ntop%2F*%22%29)
+#### NTOP Network Analyzers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Welcome+to+ntopng%22+or+same_service%28services.http.response.html_title%3A+%22Global+Traffic+Statistics%22+and+services.http.response.headers.server%3A+%22ntop%2F*%22%29)
 
 ```dsl
-services.http.response.html_title="Welcome to ntopng"
+services.http.response.html_title: "Welcome to ntopng"
 or same_service(
     services.http.response.html_title: "Global Traffic Statistics"
-    and services.http.response.headers.server: "ntop/*")
+    and services.http.response.headers.server: "ntop/*"
+)
 ```
-
 
 #### [Merlin C2](https://github.com/Ne0nd0g/merlin) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38)
 
@@ -224,10 +224,10 @@ services.http.response.html_title: "Home - Mongo Express"
 services.http.response.body: "The wp-config.php creation script uses this file"
 ```
 
-#### [North Korean Subnets](https://www.vox.com/2014/12/22/7435625/north-korea-internet) [&#x2192;](https://search.censys.io/search?resource=hosts&q=ip%3A+%7B175.45.176.0%2F22%2C+210.52.109.0%2F24%2C+77.94.35.0%2F24%7D)
+#### North Korean Hosts [&#x2192;](https://search.censys.io/search?resource=hosts&q=location.country%3A+%22North+Korea%22)
 
 ```dsl
-ip: {175.45.176.0/22, 210.52.109.0/24, 77.94.35.0/24}
+location.country: "North Korea"
 ```
 
 #### Honepots Hosts [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.truncated%3A+true)
@@ -236,31 +236,29 @@ ip: {175.45.176.0/22, 210.52.109.0/24, 77.94.35.0/24}
 services.truncated: true
 ```
 
-#### [Traefik Dashboards](https://github.com/traefik/traefik) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.request.uri%3A+%22*%2Fdashboard%2F%22+and+services.http.response.html_title%3DTraefik%29)
+#### [Traefik Dashboards](https://github.com/traefik/traefik) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.request.uri%3A+%22*%2Fdashboard%2F%22+and+services.http.response.html_title%3A+%22Traefik%22%29)
 
 ```dsl
-same_service(services.http.request.uri: "*/dashboard/" and services.http.response.html_title=Traefik)
+same_service(services.http.request.uri: "*/dashboard/" and services.http.response.html_title: "Traefik")
 ```
 
-#### [Weave Scope](https://www.weave.works/oss/scope/) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%22Weave+Scope%22+and+services.http.response.body%3D%22*WEAVEWORKS_CSRF*%22%29)
+#### [Weave Scope](https://www.weave.works/oss/scope/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22Weave+Scope%22+and+services.http.response.body%3D%22*WEAVEWORKS_CSRF*%22%29)
 
 ```dsl
-same_service(services.http.response.html_title="Weave Scope" and services.http.response.body="*WEAVEWORKS_CSRF*")
+same_service(services.http.response.html_title: "Weave Scope" and services.http.response.body="*WEAVEWORKS_CSRF*")
 ```
 
-#### Prometheus Node Exporters [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3A+%22node+exporter%22+and+services.http.response.body%3A+%22%2Fmetrics%22%29)
+#### Prometheus Node Exporters [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22node+exporter%22+and+services.http.response.body%3A+%22%2Fmetrics%22%29)
 
 ```dsl
 same_service(services.http.response.html_title: "node exporter" and services.http.response.body: "/metrics")
 ```
 
-#### [VictoriaMetrics VMAgent](https://docs.victoriametrics.com/vmagent.html) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=services.http.response.body%3A+%22%3Ch2%3Evmagent%3C%2Fh2%3E%22)
+#### [VictoriaMetrics VMAgent](https://docs.victoriametrics.com/vmagent.html) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body%3A+%22%3Ch2%3Evmagent%3C%2Fh2%3E%22)
 
 ```dsl
 services.http.response.body: "<h2>vmagent</h2>"
 ```
-
-
 
 ## License
 
