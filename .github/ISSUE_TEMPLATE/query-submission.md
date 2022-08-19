@@ -1,8 +1,8 @@
 ---
-name: Query Submission
+name: 🔎 Query Submission
 about: Suggest a query
 title: ''
-labels: ''
+labels: query submission
 assignees: thehappydinoa
 
 ---
