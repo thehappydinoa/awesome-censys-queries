@@ -337,6 +337,16 @@ same_service(services.http.response.html_title: "node exporter" and services.htt
 services.http.response.body: "<h2>vmagent</h2>"
 ```
 
+#### [SonarQube](https://www.sonarqube.org/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.html_title%3A+%22SonarQube%22+and+http.response.status_code%3A+200+and+http.response.protocol%09%3A+%22HTTP%2F1.1%22%29)
+
+```dsl
+same_service(
+    http.response.html_title: "SonarQube"
+    and http.response.status_code: 200
+    and http.response.protocol: "HTTP/1.1"
+)
+```
+
 ## License
 
 [![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
