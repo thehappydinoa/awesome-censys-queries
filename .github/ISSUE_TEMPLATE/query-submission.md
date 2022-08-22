@@ -2,7 +2,7 @@
 name: 🔎 Query Submission
 about: Suggest a query
 title: ''
-labels: query submission
+labels: query submissions
 assignees: thehappydinoa
 
 ---

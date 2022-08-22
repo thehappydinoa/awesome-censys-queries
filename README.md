@@ -2,7 +2,7 @@
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![GitHub contributors](https://img.shields.io/github/contributors/thehappydinoa/awesome-censys-queries)](https://github.com/thehappydinoa/awesome-censys-queries/graphs/contributors)
-![GitHub Repo stars](https://img.shields.io/github/stars/thehappydinoa/awesome-censys-queries)
+[![GitHub Repo stars](https://img.shields.io/github/stars/thehappydinoa/awesome-censys-queries)](https://github.com/thehappydinoa/awesome-censys-queries)
 [![License](https://img.shields.io/github/license/thehappydinoa/awesome-censys-queries)](#license)
 
 A collection of fascinating and bizarre [Censys Search](https://search.censys.io) queries.
@@ -11,6 +11,12 @@ A collection of fascinating and bizarre [Censys Search](https://search.censys.io
 <p align="center">
     <img src="./images/search.censys.io.png" alt="Censys Search" width="500px" />
 </p>
+
+## Contributing
+
+Found an awesome query? [Submit it here](https://github.com/thehappydinoa/awesome-censys-queries/issues/new?assignees=thehappydinoa&labels=query+submissions&template=query-submission.md&title=)
+
+Interested in contributing in another way? [See the contributing guidelines](CONTRIBUTING.md)
 
 ## Table of Contents
 
