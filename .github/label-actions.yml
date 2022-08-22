@@ -1,0 +1,5 @@
+# The `invalid` label is added to issues
+invalid:
+  issues:
+    comment: "This issue is invalid and will be closed."
+    close: true
