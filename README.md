@@ -18,6 +18,7 @@ A collection of fascinating and bizarre [Censys Search](https://search.censys.io
 - [Internet of Things Devices](#internet-of-things-devices)
 - [Security Applications](#security-applications)
 - [Databases](#databases)
+- [Game Servers](#game-servers)
 - [Random Services](#random-services)
 
 ### Industrial Control Systems
@@ -164,10 +165,24 @@ or same_service(
 services.jarm.fingerprint: "29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38"
 ```
 
+#### [Mythic C2](https://github.com/its-a-feature/Mythic) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28port%3A+7443+and+tls.certificates.leaf_data.subject.organization%3A+%22Mythic%22%29)
+
+```dsl
+same_service(port: 7443 and tls.certificates.leaf_data.subject.organization: "Mythic")
+```
+
+> **Note**: When using the `same_service` operator, the initial `services.` prefix is optional.
+
 #### [Deimos C2](https://github.com/DeimosC2/DeimosC2) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+00000000000000000041d00000041d9535d5979f591ae8e547c5e5743e5b64)
 
 ```dsl
 services.jarm.fingerprint: "00000000000000000041d00000041d9535d5979f591ae8e547c5e5743e5b64"
+```
+
+#### [Covenant C2](https://github.com/cobbr/Covenant) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.body%3A+%22Blazor%22+and+tls.certificates.leaf_data.issuer.common_name%3A+%22Covenant%22%29)
+
+```dsl
+same_service(http.response.body: "Blazor" and tls.certificates.leaf_data.issuer.common_name: "Covenant")
 ```
 
 #### [EvilGinx2](https://github.com/kgretzky/evilginx2) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6)
@@ -182,6 +197,14 @@ services.jarm.fingerprint: "20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe0
 
 ```dsl
 services.http.response.body: '"couchdb": "Welcome"'
+```
+
+### Game Servers
+
+#### Counter-Strike: Global Offensive [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28banner%3A+%22Counter-Strike%3A+Global+Offensive+Server%22+and+service_name%3A+VALVE%29)
+
+```dsl
+same_service(banner: "Counter-Strike: Global Offensive Server" and service_name: VALVE)
 ```
 
 ### Random Services
