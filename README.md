@@ -25,6 +25,7 @@ Interested in contributing in another way? [See the contributing guidelines](CON
 - [Security Applications](#security-applications)
 - [Databases](#databases)
 - [Game Servers](#game-servers)
+- [Dashboards](#dashboards)
 - [Random Services](#random-services)
 
 ### Industrial Control Systems
@@ -205,6 +206,57 @@ services.jarm.fingerprint: "20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe0
 services.http.response.body: '"couchdb": "Welcome"'
 ```
 
+### Dashboards
+
+#### [cAdvisor Dashboards](https://github.com/google/cadvisor) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60cAdvisor+-+%2F%60+and+services.http.response.status_code%3D200+and+services.http.request.uri%3D%22*%2Fcontainers%2F%22%29)
+
+```dsl
+same_service(
+    services.http.response.html_title=`cAdvisor - /`
+    and services.http.response.status_code=200
+    and services.http.request.uri="*/containers/"
+)
+```
+
+#### [HashiCorp Consul Dashboards](https://www.consul.io/) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60Consul+by+HashiCorp%60+and+services.http.request.uri%3A+%22*%2Fui%2F%22%29)
+
+```dsl
+same_service(
+    services.http.response.html_title=`Consul by HashiCorp`
+    and services.http.request.uri: "*/ui/"
+)
+```
+
+#### [Netdata Dashboards](https://www.netdata.cloud/) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.Server%3D%22Netdata+Embedded+HTTP*%22+and+services.http.response.html_title%3D%22netdata+dashboard%22%29)
+
+```dsl
+same_service(
+    services.http.response.headers.Server="Netdata Embedded HTTP*"
+    and services.http.response.html_title="netdata dashboard"
+)
+```
+
+#### Rancher Dashboards [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.unknown.name%3A+%22X-Rancher-Version%22+and+services.http.response.html_title%3A+%22Loading%26hellip%3B%22%29)
+
+```dsl
+same_service(
+    services.http.response.headers.unknown.name: "X-Rancher-Version"
+    and services.http.response.html_title: "Loading&hellip;"
+)
+```
+
+#### [Traefik Dashboards](https://github.com/traefik/traefik) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.request.uri%3A+%22*%2Fdashboard%2F%22+and+services.http.response.html_title%3A+%22Traefik%22%29)
+
+```dsl
+same_service(services.http.request.uri: "*/dashboard/" and services.http.response.html_title: "Traefik")
+```
+
+#### [Weave Scope](https://www.weave.works/oss/scope/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22Weave+Scope%22+and+services.http.response.body%3D%22*WEAVEWORKS_CSRF*%22%29)
+
+```dsl
+same_service(services.http.response.html_title: "Weave Scope" and services.http.response.body="*WEAVEWORKS_CSRF*")
+```
+
 ### Game Servers
 
 #### Counter-Strike: Global Offensive [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28banner%3A+%22Counter-Strike%3A+Global+Offensive+Server%22+and+service_name%3A+VALVE%29)
@@ -319,17 +371,6 @@ location.country: "North Korea"
 services.truncated: true
 ```
 
-#### [Traefik Dashboards](https://github.com/traefik/traefik) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.request.uri%3A+%22*%2Fdashboard%2F%22+and+services.http.response.html_title%3A+%22Traefik%22%29)
-
-```dsl
-same_service(services.http.request.uri: "*/dashboard/" and services.http.response.html_title: "Traefik")
-```
-
-#### [Weave Scope](https://www.weave.works/oss/scope/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22Weave+Scope%22+and+services.http.response.body%3D%22*WEAVEWORKS_CSRF*%22%29)
-
-```dsl
-same_service(services.http.response.html_title: "Weave Scope" and services.http.response.body="*WEAVEWORKS_CSRF*")
-```
 
 #### Prometheus Node Exporters [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22node+exporter%22+and+services.http.response.body%3A+%22%2Fmetrics%22%29)
 
@@ -362,42 +403,6 @@ same_service(
 )
 ```
 
-#### [cAdvisor Dashboards](https://github.com/google/cadvisor) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60cAdvisor+-+%2F%60+and+services.http.response.status_code%3D200+and+services.http.request.uri%3D%22*%2Fcontainers%2F%22%29)
-
-```dsl
-same_service(
-    services.http.response.html_title=`cAdvisor - /`
-    and services.http.response.status_code=200
-    and services.http.request.uri="*/containers/"
-)
-```
-
-#### [HashiCorp Consul Dashboards](https://www.consul.io/) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60Consul+by+HashiCorp%60+and+services.http.request.uri%3A+%22*%2Fui%2F%22%29)
-
-```dsl
-same_service(
-    services.http.response.html_title=`Consul by HashiCorp`
-    and services.http.request.uri: "*/ui/"
-)
-```
-
-#### [Netdata Dashboards](https://www.netdata.cloud/) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.Server%3D%22Netdata+Embedded+HTTP*%22+and+services.http.response.html_title%3D%22netdata+dashboard%22%29)
-
-```dsl
-same_service(
-    services.http.response.headers.Server="Netdata Embedded HTTP*"
-    and services.http.response.html_title="netdata dashboard"
-)
-```
-
-#### Rancher Dashboards [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.unknown.name%3A+%22X-Rancher-Version%22+and+services.http.response.html_title%3A+%22Loading%26hellip%3B%22%29)
-
-```dsl
-same_service(
-    services.http.response.headers.unknown.name: "X-Rancher-Version"
-    and services.http.response.html_title: "Loading&hellip;"
-)
-```
 
 ####
 
