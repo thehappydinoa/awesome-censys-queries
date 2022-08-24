@@ -1,12 +1,10 @@
 ---
-name: 🔎 Query Submission
+name: "\U0001F50E Query Submission"
 about: Suggest a query
 title: ''
 labels: query submissions
 assignees: thehappydinoa
-
 ---
-
 **Description**
 A clear and concise description of what the query does. Ex. Exposed [...] Services
 

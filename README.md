@@ -21,13 +21,20 @@ Interested in contributing in another way? [See the contributing guidelines](CON
 
 ## Table of Contents
 
-- [Industrial Control Systems](#industrial-control-systems)
-- [Internet of Things Devices](#internet-of-things-devices)
-- [Security Applications](#security-applications)
-- [Databases](#databases)
-- [Game Servers](#game-servers)
-- [Dashboards](#dashboards)
-- [Random Services](#random-services)
+<!-- toc -->
+
+* [Industrial Control Systems](#industrial-control-systems)
+* [Internet of Things Devices](#internet-of-things-devices)
+* [Security Applications](#security-applications)
+* [Databases](#databases)
+* [Dashboards](#dashboards)
+* [Game Servers](#game-servers)
+* [Media Servers](#media-servers)
+* [Random Services](#random-services)
+* [License](#license)
+* [Credits](#credits)
+
+<!-- tocstop -->
 
 ### Industrial Control Systems
 
@@ -452,7 +459,7 @@ services.http.response.html_title: "Swagger UI - "
 
 ## Credits
 
-- [jakejarvis/awesome-shodan-queries](https://github.com/jakejarvis/awesome-shodan-queries)
-- [woj-ciech/Kamerka-GUI](https://github.com/woj-ciech/Kamerka-GUI)
-- [salesforce/jarm](https://github.com/salesforce/jarm)
-- [cedowens/C2-JARM](https://github.com/cedowens/C2-JARM)
+* [jakejarvis/awesome-shodan-queries](https://github.com/jakejarvis/awesome-shodan-queries)
+* [woj-ciech/Kamerka-GUI](https://github.com/woj-ciech/Kamerka-GUI)
+* [salesforce/jarm](https://github.com/salesforce/jarm)
+* [cedowens/C2-JARM](https://github.com/cedowens/C2-JARM)
