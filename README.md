@@ -1,6 +1,7 @@
 # Awesome Censys Queries
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/thehappydinoa/awesome-censys-queries/main.svg)](https://results.pre-commit.ci/latest/github/thehappydinoa/awesome-censys-queries/main)
 [![GitHub contributors](https://img.shields.io/github/contributors/thehappydinoa/awesome-censys-queries)](https://github.com/thehappydinoa/awesome-censys-queries/graphs/contributors)
 [![GitHub Repo stars](https://img.shields.io/github/stars/thehappydinoa/awesome-censys-queries)](https://github.com/thehappydinoa/awesome-censys-queries)
 [![License](https://img.shields.io/github/license/thehappydinoa/awesome-censys-queries)](#license)
@@ -80,6 +81,19 @@ services.http.response.headers.server: "EIG Embedded Web Server"
 <details>
     <summary markdown="span">Screenshot</summary>
     <img src="./images/gaugetech.png" alt="GaugeTech" width="300px" />
+</details>
+
+#### XZERES Wind Turbine [&#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=services.http.response.html_title%3A+%22XZERES+Wind%22)
+
+```dsl
+services.http.response.html_title: "XZERES Wind"
+```
+
+> **Note**: This query works best with virtual hosts included.
+
+<details>
+    <summary markdown="span">Screenshot</summary>
+    <img src="./images/xzeres-wind-turbine.png" alt="XZERES Wind Turbine" width="300px" />
 </details>
 
 ### Internet of Things Devices
@@ -198,6 +212,12 @@ same_service(http.response.body: "Blazor" and tls.certificates.leaf_data.issuer.
 services.jarm.fingerprint: "20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6"
 ```
 
+#### [Splunk](https://www.splunk.com) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.software.product%3A+%22Splunk%22)
+
+```dsl
+services.software.product: "Splunk"
+```
+
 ### Databases
 
 #### [Exposed CouchDB Servers](https://couchdb.apache.org/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body%3A+%27%22couchdb%22%3A+%22Welcome%22%27)
@@ -263,6 +283,14 @@ same_service(services.http.response.html_title: "Weave Scope" and services.http.
 
 ```dsl
 same_service(banner: "Counter-Strike: Global Offensive Server" and service_name: VALVE)
+```
+
+### Media Servers
+
+#### [Plex Media Server](https://plex.tv/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.unknown.name%3A+%22X-Plex-Protocol%22)
+
+```dsl
+services.http.response.headers.unknown.name: "X-Plex-Protocol"
 ```
 
 ### Random Services
@@ -365,12 +393,11 @@ services.http.response.body: "The wp-config.php creation script uses this file"
 location.country: "North Korea"
 ```
 
-#### Honepots Hosts [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.truncated%3A+true)
+#### Honeypots Hosts [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.truncated%3A+true)
 
 ```dsl
 services.truncated: true
 ```
-
 
 #### Prometheus Node Exporters [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22node+exporter%22+and+services.http.response.body%3A+%22%2Fmetrics%22%29)
 
@@ -383,6 +410,11 @@ same_service(services.http.response.html_title: "node exporter" and services.htt
 ```dsl
 services.http.response.body: "<h2>vmagent</h2>"
 ```
+
+<details>
+    <summary markdown="span">Screenshot</summary>
+    <img src="./images/vmagent.png" alt="vmagent" width="300px" />
+</details>
 
 #### [SonarQube](https://www.sonarqube.org/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.html_title%3A+%22SonarQube%22+and+http.response.status_code%3A+200+and+http.response.protocol%09%3A+%22HTTP%2F1.1%22%29)
 
@@ -402,6 +434,17 @@ same_service(
     and services.http.request.uri="*/install.html"
 )
 ```
+
+#### [Swagger UI](https://swagger.io/tools/swagger-ui/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Swagger+UI+-+%22)
+
+```dsl
+services.http.response.html_title: "Swagger UI - "
+```
+
+<details>
+    <summary markdown="span">Screenshot</summary>
+    <img src="./images/swagger-ui.png" alt="Swagger UI" width="300px" />
+</details>
 
 ## License
 
