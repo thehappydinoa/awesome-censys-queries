@@ -353,6 +353,54 @@ same_service(
 )
 ```
 
+#### [Unconfigured AdGuard](https://adguard.com/en/welcome.html) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3A+%22Setup+AdGuard+Home%22+and+services.http.request.uri%3D%22*%2Finstall.html%22%29)
+
+```dsl
+same_service(
+    services.http.response.html_title: "Setup AdGuard Home"
+    and services.http.request.uri="*/install.html"
+)
+```
+
+#### [cAdvisor Dashboards](https://github.com/google/cadvisor) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60cAdvisor+-+%2F%60+and+services.http.response.status_code%3D200+and+services.http.request.uri%3D%22*%2Fcontainers%2F%22%29)
+
+```dsl
+same_service(
+    services.http.response.html_title=`cAdvisor - /`
+    and services.http.response.status_code=200
+    and services.http.request.uri="*/containers/"
+)
+```
+
+#### [HashiCorp Consul Dashboards](https://www.consul.io/) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60Consul+by+HashiCorp%60+and+services.http.request.uri%3A+%22*%2Fui%2F%22%29)
+
+```dsl
+same_service(
+    services.http.response.html_title=`Consul by HashiCorp`
+    and services.http.request.uri: "*/ui/"
+)
+```
+
+#### [Netdata Dashboards](https://www.netdata.cloud/) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.Server%3D%22Netdata+Embedded+HTTP*%22+and+services.http.response.html_title%3D%22netdata+dashboard%22%29)
+
+```dsl
+same_service(
+    services.http.response.headers.Server="Netdata Embedded HTTP*"
+    and services.http.response.html_title="netdata dashboard"
+)
+```
+
+#### Rancher Dashboards [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.unknown.name%3A+%22X-Rancher-Version%22+and+services.http.response.html_title%3A+%22Loading%26hellip%3B%22%29)
+
+```dsl
+same_service(
+    services.http.response.headers.unknown.name: "X-Rancher-Version"
+    and services.http.response.html_title: "Loading&hellip;"
+)
+```
+
+####
+
 ## License
 
 [![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
