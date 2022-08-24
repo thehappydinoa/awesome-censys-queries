@@ -21,20 +21,24 @@ Interested in contributing in another way? [See the contributing guidelines](CON
 
 ## Table of Contents
 
+<!-- markdownlint-disable MD004 MD005 MD007 MD032 -->
+
 <!-- toc -->
 
-* [Industrial Control Systems](#industrial-control-systems)
-* [Internet of Things Devices](#internet-of-things-devices)
-* [Security Applications](#security-applications)
-* [Databases](#databases)
-* [Dashboards](#dashboards)
-* [Game Servers](#game-servers)
-* [Media Servers](#media-servers)
-* [Random Services](#random-services)
-* [License](#license)
-* [Credits](#credits)
+  * [Industrial Control Systems](#industrial-control-systems)
+  * [Internet of Things Devices](#internet-of-things-devices)
+  * [Security Applications](#security-applications)
+  * [Databases](#databases)
+  * [Dashboards](#dashboards)
+  * [Game Servers](#game-servers)
+  * [Media Servers](#media-servers)
+  * [Random Services](#random-services)
+- [License](#license)
+- [Credits](#credits)
 
 <!-- tocstop -->
+
+<!-- markdownlint-enable MD004 MD005 MD007 MD032 -->
 
 ### Industrial Control Systems
 
