@@ -33,6 +33,7 @@ Interested in contributing in another way? [See the contributing guidelines](CON
   * [Game Servers](#game-servers)
   * [Media Servers](#media-servers)
   * [Random Services](#random-services)
+  * [Advanced Queries](#advanced-queries)
 - [License](#license)
 - [Credits](#credits)
 
@@ -214,7 +215,10 @@ services.jarm.fingerprint: "00000000000000000041d00000041d9535d5979f591ae8e547c5
 #### [Covenant C2](https://github.com/cobbr/Covenant) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.body%3A+%22Blazor%22+and+tls.certificates.leaf_data.issuer.common_name%3A+%22Covenant%22%29)
 
 ```dsl
-same_service(http.response.body: "Blazor" and tls.certificates.leaf_data.issuer.common_name: "Covenant")
+same_service(
+    http.response.body: "Blazor"
+    and tls.certificates.leaf_data.issuer.common_name: "Covenant"
+)
 ```
 
 #### [EvilGinx2](https://github.com/kgretzky/evilginx2) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6)
@@ -279,13 +283,19 @@ same_service(
 #### [Traefik Dashboards](https://github.com/traefik/traefik) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.request.uri%3A+%22*%2Fdashboard%2F%22+and+services.http.response.html_title%3A+%22Traefik%22%29)
 
 ```dsl
-same_service(services.http.request.uri: "*/dashboard/" and services.http.response.html_title: "Traefik")
+same_service(
+    services.http.request.uri: "*/dashboard/"
+    and services.http.response.html_title: "Traefik"
+)
 ```
 
 #### [Weave Scope](https://www.weave.works/oss/scope/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22Weave+Scope%22+and+services.http.response.body%3D%22*WEAVEWORKS_CSRF*%22%29)
 
 ```dsl
-same_service(services.http.response.html_title: "Weave Scope" and services.http.response.body="*WEAVEWORKS_CSRF*")
+same_service(
+    services.http.response.html_title: "Weave Scope"
+    and services.http.response.body="*WEAVEWORKS_CSRF*"
+)
 ```
 
 ### Game Servers
@@ -306,6 +316,35 @@ services.http.response.headers.unknown.name: "X-Plex-Protocol"
 
 ### Random Services
 
+#### Hosts emitting GNSS payloads [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.banner%3A+%22%24GPRMC%22)
+
+```dsl
+services.banner: "$GPRMC"
+```
+
+#### Directory Listing [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Index+of+%2F%22)
+
+```dsl
+services.http.response.html_title: "Index of /"
+```
+
+#### [Swagger UI](https://swagger.io/tools/swagger-ui/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Swagger+UI+-+%22)
+
+```dsl
+services.http.response.html_title: "Swagger UI - "
+```
+
+<details>
+    <summary markdown="span">Screenshot</summary>
+    <img src="./images/swagger-ui.png" alt="Swagger UI" width="300px" />
+</details>
+
+#### [Mongo Express Admin Interface](https://github.com/mongo-express/mongo-express) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Home+-+Mongo+Express%22)
+
+```dsl
+services.http.response.html_title: "Home - Mongo Express"
+```
+
 #### shell2http [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=services.http.response.html_title%3A+%22shell2http%22&cursor=eyJBZnRlciI6WyIyMS4yOTIxMzEiLCJBaTJPMzhHWlRtN2ZrUTFCdERPOUp3PT0iXSwiUmV2ZXJzZSI6ZmFsc2UsIlNlZWQiOjB9)
 
 ```dsl
@@ -323,39 +362,6 @@ same_service(services.banner: "Enter 'help' for a list of built-in commands" and
     <img src="./images/busybox.png" alt="Busybox" width="300px" />
 </details>
 
-#### Services Listening on Port 22 that are not SSH [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28not+services.service_name%3A+%7BSSH%7D+and+services.port%3A+22+and+not+services.banner%3A+%7B%22Connection+refused%22%2C+%22SSH-%22%2C+%22Exceeded+MaxStartups%22%2C+%22Too+many+users%22%2C+%22Connection+closed+by+server%22%7D%29+and+services.truncated%3A+false)
-
-```dsl
-same_service(
-    not services.service_name: {SSH}
-    and services.port: 22
-    and not services.banner: {"Connection refused", "SSH-", "Exceeded MaxStartups", "Too many users", "Connection closed by server"}
-)
-and services.truncated: false
-```
-
-#### Services Listening on 80 or 443 that are not HTTP or HTTPS (or UNKNOWN with TLS) [&#x2192;](https://search.censys.io/search?resource=hosts&q=not+same_service%28services.port%3A+443+and+services.name%3A+UNKNOWN+and+services.tls.certificates.leaf_data.subject_dn%3A+*+%29+and+same_service%28services.port%3A+%7B80%2C+443%7D+and+not+services.service_name%3A+%7BKUBERNETES%2C+ANYCONNECT%2C+OPENVPN%2C+HTTP%7D+and+not+services.banner%3A+%E2%80%9CHTTP%2F%E2%80%9D+%29++and+services.truncated%3A+false)
-
-```dsl
-not same_service(
-    services.port: 443
-    and services.name: UNKNOWN
-    and services.tls.certificates.leaf_data.subject_dn: *
-)
-and same_service(
-    services.port: {80, 443}
-    and not services.service_name: {KUBERNETES, ANYCONNECT, OPENVPN, HTTP}
-    and not services.banner: “HTTP/”
-)
-and services.truncated: false
-```
-
-#### Services Listening on 53 that are not DNS [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.port%3A+53+and+not+services.service_name%3A+DNS%29+and+services.truncated%3A+false)
-
-```dsl
-same_service(services.port: 53 and not services.service_name: DNS) and services.truncated: false
-```
-
 #### Unauthenticated Redis Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.redis.ping_response%3A+%22PONG%22)
 
 ```dsl
@@ -368,46 +374,19 @@ services.redis.ping_response: "PONG"
 services.kubernetes.pod_names: *
 ```
 
-#### Directory Listing [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Index+of+%2F%22)
-
-```dsl
-services.http.response.html_title: "Index of /"
-```
-
-#### Hosts that identify as US government or military [&#x2192;](https://search.censys.io/search?resource=hosts&q=dns.names%3A+*.gov+or+dns.names%3A+*.mil+or+name%3A+*.gov+or+name%3A+*.mil)
-
-```dsl
-dns.names: *.gov or dns.names: *.mil or name: *.gov or name: *.mil
-```
-
-#### Hosts emitting GNSS payloads [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.banner%3A+%22%24GPRMC%22)
-
-```dsl
-services.banner: "$GPRMC"
-```
-
-#### [Mongo Express Admin Interface](https://github.com/mongo-express/mongo-express) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Home+-+Mongo+Express%22)
-
-```dsl
-services.http.response.html_title: "Home - Mongo Express"
-```
-
 #### Misconfigured WordPress [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body%3A+%22The+wp-config.php+creation+script+uses+this+file%22)
 
 ```dsl
 services.http.response.body: "The wp-config.php creation script uses this file"
 ```
 
-#### North Korean Hosts [&#x2192;](https://search.censys.io/search?resource=hosts&q=location.country%3A+%22North+Korea%22)
+#### [Unconfigured AdGuard](https://adguard.com/en/welcome.html) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3A+%22Setup+AdGuard+Home%22+and+services.http.request.uri%3D%22*%2Finstall.html%22%29)
 
 ```dsl
-location.country: "North Korea"
-```
-
-#### Honeypots Hosts [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.truncated%3A+true)
-
-```dsl
-services.truncated: true
+same_service(
+    services.http.response.html_title: "Setup AdGuard Home"
+    and services.http.request.uri="*/install.html"
+)
 ```
 
 #### Prometheus Node Exporters [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22node+exporter%22+and+services.http.response.body%3A+%22%2Fmetrics%22%29)
@@ -437,25 +416,58 @@ same_service(
 )
 ```
 
-#### [Unconfigured AdGuard](https://adguard.com/en/welcome.html) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3A+%22Setup+AdGuard+Home%22+and+services.http.request.uri%3D%22*%2Finstall.html%22%29)
+### Advanced Queries
+
+#### Honeypots Hosts [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.truncated%3A+true)
+
+```dsl
+services.truncated: true
+```
+
+#### North Korean Hosts [&#x2192;](https://search.censys.io/search?resource=hosts&q=location.country%3A+%22North+Korea%22)
+
+```dsl
+location.country: "North Korea"
+```
+
+#### Hosts that identify as US government or military [&#x2192;](https://search.censys.io/search?resource=hosts&q=dns.names%3A+*.gov+or+dns.names%3A+*.mil+or+name%3A+*.gov+or+name%3A+*.mil)
+
+```dsl
+dns.names: *.gov or dns.names: *.mil or name: *.gov or name: *.mil
+```
+
+#### Services Listening on 53 that are not DNS [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.port%3A+53+and+not+services.service_name%3A+DNS%29+and+services.truncated%3A+false)
+
+```dsl
+same_service(services.port: 53 and not services.service_name: DNS) and services.truncated: false
+```
+
+#### Services Listening on Port 22 that are not SSH [&#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28not+services.service_name%3A+%7BSSH%7D+and+services.port%3A+22+and+not+services.banner%3A+%7B%22Connection+refused%22%2C+%22SSH-%22%2C+%22Exceeded+MaxStartups%22%2C+%22Too+many+users%22%2C+%22Connection+closed+by+server%22%7D%29+and+services.truncated%3A+false)
 
 ```dsl
 same_service(
-    services.http.response.html_title: "Setup AdGuard Home"
-    and services.http.request.uri="*/install.html"
+    not services.service_name: {SSH}
+    and services.port: 22
+    and not services.banner: {"Connection refused", "SSH-", "Exceeded MaxStartups", "Too many users", "Connection closed by server"}
 )
+and services.truncated: false
 ```
 
-#### [Swagger UI](https://swagger.io/tools/swagger-ui/) [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Swagger+UI+-+%22)
+#### Services Listening on 80 or 443 that are not HTTP or HTTPS (or UNKNOWN with TLS) [&#x2192;](https://search.censys.io/search?resource=hosts&q=not+same_service%28services.port%3A+443+and+services.name%3A+UNKNOWN+and+services.tls.certificates.leaf_data.subject_dn%3A+*+%29+and+same_service%28services.port%3A+%7B80%2C+443%7D+and+not+services.service_name%3A+%7BKUBERNETES%2C+ANYCONNECT%2C+OPENVPN%2C+HTTP%7D+and+not+services.banner%3A+%E2%80%9CHTTP%2F%E2%80%9D+%29++and+services.truncated%3A+false)
 
 ```dsl
-services.http.response.html_title: "Swagger UI - "
+not same_service(
+    services.port: 443
+    and services.name: UNKNOWN
+    and services.tls.certificates.leaf_data.subject_dn: *
+)
+and same_service(
+    services.port: {80, 443}
+    and not services.service_name: {KUBERNETES, ANYCONNECT, OPENVPN, HTTP}
+    and not services.banner: “HTTP/”
+)
+and services.truncated: false
 ```
-
-<details>
-    <summary markdown="span">Screenshot</summary>
-    <img src="./images/swagger-ui.png" alt="Swagger UI" width="300px" />
-</details>
 
 ## License
 
