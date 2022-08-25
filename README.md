@@ -22,7 +22,6 @@ Interested in contributing in another way? [See the contributing guidelines](CON
 ## Key
 
 - <a>🔎 &#x2192;</a> - This icon will take you to the Censys Search results page for the query.
-- 🖼️ - This icon indicates that there is an example image for the query.
 
 ## Table of Contents
 
@@ -55,7 +54,7 @@ services.tls.certificates.leaf_data.subject.common_name: "Prismview" or services
 ```
 
 <details>
-    <summary markdown="span">Screenshot 🖼️</summary>
+    <summary markdown="span">Screenshot</summary>
     <img src="./images/prismview.png" alt="Prismview" width="300px" />
 </details>
 
@@ -67,7 +66,7 @@ or services.service_name: ATG) and services.truncated: false
 ```
 
 <details>
-    <summary markdown="span">Screenshot 🖼️</summary>
+    <summary markdown="span">Screenshot</summary>
     <img src="./images/atg.png" alt="ATG" width="300px" />
 </details>
 
@@ -77,17 +76,31 @@ or services.service_name: ATG) and services.truncated: false
 same_service(http.response.headers.server: "gSOAP/2.8" and http.response.headers.content_length: 583)
 ```
 
-#### Carel PlantVisor [(Reference)](https://www.carel.com/product/plantvisor) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22CAREL+Pl%40ntVisor%22)
+#### Carel PlantVisor [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22CAREL+Pl%40ntVisor%22)
 
 ```dsl
 services.http.response.html_title: "CAREL Pl@ntVisor"
 ```
 
-#### C4 Max Vehicle GPS [(Reference)](https://wiki.neweagle.net/ProductDocumentation/Telematics/C4MAX_datasheet.pdf) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.banner%3A+%22%5B1m%5B35mWelcome+on+console%22)
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://www.carel.com/product/plantvisor>
+
+</details>
+
+#### C4 Max Vehicle GPS [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.banner%3A+%22%5B1m%5B35mWelcome+on+console%22)
 
 ```dsl
 services.banner: "[1m[35mWelcome on console"
 ```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://wiki.neweagle.net/ProductDocumentation/Telematics/C4MAX_datasheet.pdf>
+
+</details>
 
 #### GaugeTech Electricity Meters [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.server%3A+%22EIG+Embedded+Web+Server%22)
 
@@ -96,7 +109,7 @@ services.http.response.headers.server: "EIG Embedded Web Server"
 ```
 
 <details>
-    <summary markdown="span">Screenshot 🖼️</summary>
+    <summary markdown="span">Screenshot</summary>
     <img src="./images/gaugetech.png" alt="GaugeTech" width="300px" />
 </details>
 
@@ -109,7 +122,7 @@ services.http.response.html_title: "XZERES Wind"
 > **Note**: This query works best with virtual hosts included.
 
 <details>
-    <summary markdown="span">Screenshot 🖼️</summary>
+    <summary markdown="span">Screenshot</summary>
     <img src="./images/xzeres-wind-turbine.png" alt="XZERES Wind Turbine" width="300px" />
 </details>
 
@@ -133,22 +146,36 @@ services.http.response.headers.Www_Authenticate: `Basic realm= "Mein Automower (
 services.banner: "WinAQMS Data Server" and services.truncated: false
 ```
 
-#### [Emerson Site Supervisor](https://www.emerson.com/en-us/site-supervisor-5385648A) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Emerson+Site+Supervisor%22)
+#### Emerson Site Supervisor [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Emerson+Site+Supervisor%22)
 
 ```dsl
 services.http.response.html_title: "Emerson Site Supervisor"
 ```
 
 <details>
-    <summary markdown="span">Screenshot 🖼️</summary>
+    <summary markdown="span">Screenshot</summary>
     <img src="./images/emerson-site-supervisor.png" alt="Emerson" width="500px" />
 </details>
 
-#### [Nethix Wireless Controller](https://nethix.com/en/) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.set_cookie%3A+%22NethixSession%22)
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://www.emerson.com/en-us/site-supervisor-5385648A>
+
+</details>
+
+#### Nethix Wireless Controller [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.set_cookie%3A+%22NethixSession%22)
 
 ```dsl
 services.http.response.headers.set_cookie: "NethixSession"
 ```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://nethix.com/en/>
+
+</details>
 
 ### Security Applications
 
@@ -197,13 +224,20 @@ or same_service(
 )
 ```
 
-#### Merlin C2 [(Reference)](https://github.com/Ne0nd0g/merlin) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38)
+#### Merlin C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38)
 
 ```dsl
 services.jarm.fingerprint: "29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38"
 ```
 
-#### Mythic C2 [(Reference)](https://github.com/its-a-feature/Mythic) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28port%3A+7443+and+tls.certificates.leaf_data.subject.organization%3A+%22Mythic%22%29)
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/Ne0nd0g/merlin>
+
+</details>
+
+#### Mythic C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28port%3A+7443+and+tls.certificates.leaf_data.subject.organization%3A+%22Mythic%22%29)
 
 ```dsl
 same_service(port: 7443 and tls.certificates.leaf_data.subject.organization: "Mythic")
@@ -211,13 +245,27 @@ same_service(port: 7443 and tls.certificates.leaf_data.subject.organization: "My
 
 > **Note**: When using the `same_service` operator, the initial `services.` prefix is optional.
 
-#### Deimos C2 [(Reference)](https://github.com/DeimosC2/DeimosC2) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+00000000000000000041d00000041d9535d5979f591ae8e547c5e5743e5b64)
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/its-a-feature/Mythic>
+
+</details>
+
+#### Deimos C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+00000000000000000041d00000041d9535d5979f591ae8e547c5e5743e5b64)
 
 ```dsl
 services.jarm.fingerprint: "00000000000000000041d00000041d9535d5979f591ae8e547c5e5743e5b64"
 ```
 
-#### Covenant C2 [(Reference)](https://github.com/cobbr/Covenant) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.body%3A+%22Blazor%22+and+tls.certificates.leaf_data.issuer.common_name%3A+%22Covenant%22%29)
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/DeimosC2/DeimosC2>
+
+</details>
+
+#### Covenant C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.body%3A+%22Blazor%22+and+tls.certificates.leaf_data.issuer.common_name%3A+%22Covenant%22%29)
 
 ```dsl
 same_service(
@@ -226,29 +274,57 @@ same_service(
 )
 ```
 
-#### EvilGinx2 [(Reference)](https://github.com/kgretzky/evilginx2) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6)
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/cobbr/Covenant>
+
+</details>
+
+#### EvilGinx2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6)
 
 ```dsl
 services.jarm.fingerprint: "20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6"
 ```
 
-#### Splunk [(Reference)](https://www.splunk.com) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.software.product%3A+%22Splunk%22)
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/kgretzky/evilginx2>
+
+</details>
+
+#### Splunk [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.software.product%3A+%22Splunk%22)
 
 ```dsl
 services.software.product: "Splunk"
 ```
 
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://www.splunk.com>
+
+</details>
+
 ### Databases
 
-#### Exposed CouchDB Servers [(Reference)](https://couchdb.apache.org/) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body%3A+%27%22couchdb%22%3A+%22Welcome%22%27)
+#### Exposed CouchDB Servers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body%3A+%27%22couchdb%22%3A+%22Welcome%22%27)
 
 ```dsl
 services.http.response.body: '"couchdb": "Welcome"'
 ```
 
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://couchdb.apache.org/>
+
+</details>
+
 ### Dashboards
 
-#### cAdvisor Dashboards [(Reference)](https://github.com/google/cadvisor) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60cAdvisor+-+%2F%60+and+services.http.response.status_code%3D200+and+services.http.request.uri%3D%22*%2Fcontainers%2F%22%29)
+#### cAdvisor Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60cAdvisor+-+%2F%60+and+services.http.response.status_code%3D200+and+services.http.request.uri%3D%22*%2Fcontainers%2F%22%29)
 
 ```dsl
 same_service(
@@ -258,7 +334,14 @@ same_service(
 )
 ```
 
-#### HashiCorp Consul Dashboards [(Reference)](https://www.consul.io/) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60Consul+by+HashiCorp%60+and+services.http.request.uri%3A+%22*%2Fui%2F%22%29)
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/google/cadvisor>
+
+</details>
+
+#### HashiCorp Consul Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60Consul+by+HashiCorp%60+and+services.http.request.uri%3A+%22*%2Fui%2F%22%29)
 
 ```dsl
 same_service(
@@ -267,7 +350,14 @@ same_service(
 )
 ```
 
-#### Netdata Dashboards [(Reference)](https://www.netdata.cloud/) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.Server%3D%22Netdata+Embedded+HTTP*%22+and+services.http.response.html_title%3D%22netdata+dashboard%22%29)
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://www.consul.io/>
+
+</details>
+
+#### Netdata Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.Server%3D%22Netdata+Embedded+HTTP*%22+and+services.http.response.html_title%3D%22netdata+dashboard%22%29)
 
 ```dsl
 same_service(
@@ -275,6 +365,13 @@ same_service(
     and services.http.response.html_title="netdata dashboard"
 )
 ```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://www.netdata.cloud/>
+
+</details>
 
 #### Rancher Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.unknown.name%3A+%22X-Rancher-Version%22+and+services.http.response.html_title%3A+%22Loading%26hellip%3B%22%29)
 
@@ -285,7 +382,7 @@ same_service(
 )
 ```
 
-#### Traefik Dashboards [(Reference)](https://github.com/traefik/traefik) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.request.uri%3A+%22*%2Fdashboard%2F%22+and+services.http.response.html_title%3A+%22Traefik%22%29)
+#### Traefik Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.request.uri%3A+%22*%2Fdashboard%2F%22+and+services.http.response.html_title%3A+%22Traefik%22%29)
 
 ```dsl
 same_service(
@@ -294,7 +391,14 @@ same_service(
 )
 ```
 
-#### Weave Scope [(Reference)](https://www.weave.works/oss/scope/) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22Weave+Scope%22+and+services.http.response.body%3D%22*WEAVEWORKS_CSRF*%22%29)
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/traefik/traefik>
+
+</details>
+
+#### Weave Scope [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22Weave+Scope%22+and+services.http.response.body%3D%22*WEAVEWORKS_CSRF*%22%29)
 
 ```dsl
 same_service(
@@ -302,6 +406,13 @@ same_service(
     and services.http.response.body="*WEAVEWORKS_CSRF*"
 )
 ```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://www.weave.works/oss/scope/>
+
+</details>
 
 ### Game Servers
 
@@ -313,11 +424,18 @@ same_service(banner: "Counter-Strike: Global Offensive Server" and service_name:
 
 ### Media Servers
 
-#### Plex Media Server [(Reference)](https://plex.tv/) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.unknown.name%3A+%22X-Plex-Protocol%22)
+#### Plex Media Server [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.unknown.name%3A+%22X-Plex-Protocol%22)
 
 ```dsl
 services.http.response.headers.unknown.name: "X-Plex-Protocol"
 ```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://plex.tv/>
+
+</details>
 
 ### Random Services
 
@@ -333,22 +451,36 @@ services.banner: "$GPRMC"
 services.http.response.html_title: "Index of /"
 ```
 
-#### Swagger UI [(Reference)](https://swagger.io/tools/swagger-ui/) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Swagger+UI+-+%22)
+#### Swagger UI [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Swagger+UI+-+%22)
 
 ```dsl
 services.http.response.html_title: "Swagger UI - "
 ```
 
 <details>
-    <summary markdown="span">Screenshot 🖼️</summary>
+    <summary markdown="span">Screenshot</summary>
     <img src="./images/swagger-ui.png" alt="Swagger UI" width="300px" />
 </details>
 
-#### Mongo Express Admin Interface [(Reference)](https://github.com/mongo-express/mongo-express) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Home+-+Mongo+Express%22)
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://swagger.io/tools/swagger-ui/>
+
+</details>
+
+#### Mongo Express Admin Interface [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Home+-+Mongo+Express%22)
 
 ```dsl
 services.http.response.html_title: "Home - Mongo Express"
 ```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/mongo-express/mongo-express>
+
+</details>
 
 #### shell2http [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=services.http.response.html_title%3A+%22shell2http%22&cursor=eyJBZnRlciI6WyIyMS4yOTIxMzEiLCJBaTJPMzhHWlRtN2ZrUTFCdERPOUp3PT0iXSwiUmV2ZXJzZSI6ZmFsc2UsIlNlZWQiOjB9)
 
@@ -363,7 +495,7 @@ same_service(services.banner: "Enter 'help' for a list of built-in commands" and
 ```
 
 <details>
-    <summary markdown="span">Screenshot 🖼️</summary>
+    <summary markdown="span">Screenshot</summary>
     <img src="./images/busybox.png" alt="Busybox" width="300px" />
 </details>
 
@@ -385,7 +517,7 @@ services.kubernetes.pod_names: *
 services.http.response.body: "The wp-config.php creation script uses this file"
 ```
 
-#### Unconfigured AdGuard [(Reference)](https://adguard.com/en/welcome.html) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3A+%22Setup+AdGuard+Home%22+and+services.http.request.uri%3D%22*%2Finstall.html%22%29)
+#### Unconfigured AdGuard [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3A+%22Setup+AdGuard+Home%22+and+services.http.request.uri%3D%22*%2Finstall.html%22%29)
 
 ```dsl
 same_service(
@@ -394,24 +526,38 @@ same_service(
 )
 ```
 
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://adguard.com/en/welcome.html>
+
+</details>
+
 #### Prometheus Node Exporters [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22node+exporter%22+and+services.http.response.body%3A+%22%2Fmetrics%22%29)
 
 ```dsl
 same_service(services.http.response.html_title: "node exporter" and services.http.response.body: "/metrics")
 ```
 
-#### VictoriaMetrics VMAgent [(Reference)](https://docs.victoriametrics.com/vmagent.html) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body%3A+%22%3Ch2%3Evmagent%3C%2Fh2%3E%22)
+#### VictoriaMetrics VMAgent [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body%3A+%22%3Ch2%3Evmagent%3C%2Fh2%3E%22)
 
 ```dsl
 services.http.response.body: "<h2>vmagent</h2>"
 ```
 
 <details>
-    <summary markdown="span">Screenshot 🖼️</summary>
+    <summary markdown="span">Screenshot</summary>
     <img src="./images/vmagent.png" alt="vmagent" width="300px" />
 </details>
 
-#### SonarQube [(Reference)](https://www.sonarqube.org/) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.html_title%3A+%22SonarQube%22+and+http.response.status_code%3A+200+and+http.response.protocol%09%3A+%22HTTP%2F1.1%22%29)
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://docs.victoriametrics.com/vmagent.html>
+
+</details>
+
+#### SonarQube [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.html_title%3A+%22SonarQube%22+and+http.response.status_code%3A+200+and+http.response.protocol%09%3A+%22HTTP%2F1.1%22%29)
 
 ```dsl
 same_service(
@@ -420,6 +566,13 @@ same_service(
     and http.response.protocol: "HTTP/1.1"
 )
 ```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://www.sonarqube.org/>
+
+</details>
 
 ### Advanced Queries
 
