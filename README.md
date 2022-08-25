@@ -5,6 +5,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/thehappydinoa/awesome-censys-queries)](https://github.com/thehappydinoa/awesome-censys-queries/graphs/contributors)
 [![GitHub Repo stars](https://img.shields.io/github/stars/thehappydinoa/awesome-censys-queries)](https://github.com/thehappydinoa/awesome-censys-queries)
 [![License](https://img.shields.io/github/license/thehappydinoa/awesome-censys-queries)](#license)
+![Twitter URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fthehappydinoa%2Fawesome-censys-queries)
 
 A collection of fascinating and bizarre [Censys Search](https://search.censys.io) queries.
 
