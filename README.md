@@ -165,6 +165,35 @@ services.http.response.html_title: "Emerson Site Supervisor"
 
 </details>
 
+#### Brightsign Digital Signi [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.http.response.html_title%3A+%22%27BrightSign%26reg%3B%22)
+
+```dsl
+services.http.response.html_title: "'BrightSign&reg;"
+```
+
+#### Elnet Power Meters [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=same_service%28services.http.response.headers.Server%3D%22CAL1.0%22+and+services.http.response.status_code%3A+200%29)
+
+```dsl
+same_service(
+    services.http.response.headers.Server="CAL1.0" 
+    and services.http.response.status_code: 200
+)
+```
+
+<details>
+    <summary markdown="span">Screenshot</summary>
+    <img src="./images/elnet.png" alt="Elnet" width="500px" />
+</details>
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <http://www.elnet.cc/>
+
+</details>
+
+
+
 #### Nethix Wireless Controller [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.set_cookie%3A+%22NethixSession%22)
 
 ```dsl
