@@ -3,7 +3,7 @@
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/thehappydinoa/awesome-censys-queries/main.svg)](https://results.pre-commit.ci/latest/github/thehappydinoa/awesome-censys-queries/main)
 [![GitHub contributors](https://img.shields.io/github/contributors/thehappydinoa/awesome-censys-queries)](https://github.com/thehappydinoa/awesome-censys-queries/graphs/contributors)
-[![GitHub Repo stars](https://img.shields.io/github/stars/thehappydinoa/awesome-censys-queries)](https://github.com/thehappydinoa/awesome-censys-queries)
+[![GitHub Repo stars](https://img.shields.io/github/stars/thehappydinoa/awesome-censys-queries)](https://github.com/thehappydinoa/awesome-censys-queries/stargazers)
 [![License](https://img.shields.io/github/license/thehappydinoa/awesome-censys-queries)](#license)
 ![Twitter URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fthehappydinoa%2Fawesome-censys-queries)
 
