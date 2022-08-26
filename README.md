@@ -175,7 +175,7 @@ services.http.response.html_title: "'BrightSign&reg;"
 
 ```dsl
 same_service(
-    services.http.response.headers.Server="CAL1.0" 
+    services.http.response.headers.Server="CAL1.0"
     and services.http.response.status_code: 200
 )
 ```
@@ -191,8 +191,6 @@ same_service(
 - <http://www.elnet.cc/>
 
 </details>
-
-
 
 #### Nethix Wireless Controller [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.set_cookie%3A+%22NethixSession%22)
 
