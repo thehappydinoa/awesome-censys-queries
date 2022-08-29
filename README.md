@@ -465,6 +465,24 @@ services.http.response.headers.unknown.name: "X-Plex-Protocol"
 
 </details>
 
+#### MythWeb [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.request.uri%3A+%22mythweb%22)
+
+```dsl
+services.http.request.uri: "mythweb"
+```
+
+<details>
+    <summary markdown="span">Screenshot</summary>
+    <img src="./images/mythweb.png" alt="MythWeb" width="300px" />
+</details>
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/MythTV/mythweb>
+
+</details>
+
 ### Random Services
 
 #### Hosts emitting GNSS payloads [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.banner%3A+%22%24GPRMC%22)
