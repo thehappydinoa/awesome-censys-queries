@@ -48,6 +48,12 @@ Interested in contributing in another way? [See the contributing guidelines](CON
 
 ### Industrial Control Systems
 
+#### Industrial Control System Protocols [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.service_name%3A+%7BBACNET%2C+CODESYS%2C+EIP%2C+FINS%2C+FOX%2C+IEC60870_5_104%2C+S7%2C+MODBUS%7D)
+
+```dsl
+services.service_name: {BACNET, CODESYS, EIP, FINS, FOX, IEC60870_5_104, S7, MODBUS}
+```
+
 #### Prismview (Samsung Electronic Billboards) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject.common_name%3A+%22Prismview%22+or+services.http.response.headers.server%3A+%22Prismview+Player%22)
 
 ```dsl
@@ -65,6 +71,8 @@ services.tls.certificates.leaf_data.subject.common_name: "Prismview" or services
 (same_service(port: 10001 and banner: "IN-TANK INVENTORY")
 or services.service_name: ATG) and services.truncated: false
 ```
+
+> **Pro-Tip**: Add `services.truncated: false` to your query to exclude honeypots (Hosts with 100+ services).
 
 <details>
     <summary markdown="span">Screenshot</summary>
@@ -202,6 +210,19 @@ services.http.response.headers.set_cookie: "NethixSession"
     <summary markdown="span">References</summary>
 
 - <https://nethix.com/en/>
+
+</details>
+
+#### Compromised Mikrotik Router [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.service_name%3A+MIKROTIK_BW+and+%22hacked%22)
+
+```dsl
+services.service_name: MIKROTIK_BW and "hacked"
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://thehackernews.com/2021/12/over-300000-mikrotik-devices-found.html>
 
 </details>
 
@@ -646,6 +667,22 @@ dns.names: *.gov or dns.names: *.mil or name: *.gov or name: *.mil
 same_service(services.port: 53 and not services.service_name: DNS) and services.truncated: false
 ```
 
+> Alternative syntax without the `services.` prefix inside the `same_service` function:
+>
+> ```dsl
+> same_service(port: 53 and not service_name: DNS) and services.truncated: false
+> ```
+
+#### Non-Standard Services Listening on Common Ports [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.port%3A+%7B21%2C+22%2C+80%7D+and+not+services.service_name%3A+%7BHTTP%2C+SSH%2C+FTP%2C+UNKNOWN%7D%29+and+services.truncated%3A+false)
+
+```dsl
+same_service(
+    services.port: {21, 22, 80}
+    and not services.service_name: {HTTP, SSH, FTP, UNKNOWN}
+)
+and services.truncated: false
+```
+
 #### Services Listening on Port 22 that are not SSH [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28not+services.service_name%3A+%7BSSH%7D+and+services.port%3A+22+and+not+services.banner%3A+%7B%22Connection+refused%22%2C+%22SSH-%22%2C+%22Exceeded+MaxStartups%22%2C+%22Too+many+users%22%2C+%22Connection+closed+by+server%22%7D%29+and+services.truncated%3A+false)
 
 ```dsl
@@ -683,3 +720,4 @@ and services.truncated: false
 - [woj-ciech/Kamerka-GUI](https://github.com/woj-ciech/Kamerka-GUI)
 - [salesforce/jarm](https://github.com/salesforce/jarm)
 - [cedowens/C2-JARM](https://github.com/cedowens/C2-JARM)
+- [emilyaustin/censys-resources](https://github.com/emilyaustin/censys-resources)
