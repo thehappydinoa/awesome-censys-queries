@@ -216,10 +216,6 @@ services.certificate: {
 }
 or services.tls.certificates.leaf_data.issuer.common_name: "Major Cobalt Strike"
 or services.tls.certificates.leaf_data.subject.common_name: "Major Cobalt Strike"
-or services.jarm.fingerprint: {
-    "07d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1",
-    "07d14d16d21d21d00042d41d00041de5fb3038104f457d92ba02e9311512c2"
-}
 ```
 
 #### Metasploit Servers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Metasploit%22+and+%28services.tls.certificates.leaf_data.subject.organization%3A+%22Rapid7%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22MetasploitSelfSignedCA%22%29+or+services.jarm.fingerprint%3A+%7B07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d%2C+07d14d16d21d21d07c42d43d000000f50d155305214cf247147c43c0f1a823%7D)
@@ -306,6 +302,44 @@ same_service(
     <summary markdown="span">References</summary>
 
 - <https://github.com/cobbr/Covenant>
+
+</details>
+
+#### PoshC2 [🔎 &#x2192;](https%3A%2F%2Fsearch.censys.io%2Fsearch%3Fresource%3Dhosts%26q%3Dsame_service%28services.tls.certificates.leaf_data.subject.common_name%253D%2522P18055078%2522%2Band%2Bservices.tls.certificates.leaf_data.subject.province%253D%2522Minnesota%2522%2Band%2Bservices.tls.certificates.leaf_data.subject.locality%253D%2522Minnetonka%2522%2Band%2Bservices.tls.certificates.leaf_data.subject.organization%253D%2522Pajfds%2522%2Band%2Bservices.tls.certificates.leaf_data.subject.organizational_unit%253D%2522Jethpro%2522%29)
+
+```dsl
+same_service(
+    services.tls.certificates.leaf_data.subject.common_name="P18055078" and
+    services.tls.certificates.leaf_data.subject.province="Minnesota" and
+    services.tls.certificates.leaf_data.subject.locality="Minnetonka" and
+    services.tls.certificates.leaf_data.subject.organization="Pajfds" and
+    services.tls.certificates.leaf_data.subject.organizational_unit="Jethpro"
+)
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/nettitude/PoshC2>
+
+</details>
+
+#### Sliver C2 [🔎 &#x2192;](https%3A%2F%2Fsearch.censys.io%2Fsearch%3Fresource%3Dhosts%26q%3Dsame_service%28services.tls.certificates.leaf_data.pubkey_bit_size%253A%2B2048%2Band%2Bservices.tls.certificates.leaf_data.subject.organization%253A%2B%252F%28ACME%7CPartners%7CTech%7CCloud%7CSynergy%7CTest%7CDebug%29%253F%2B%253F%28co%7Cllc%7Cinc%7Ccorp%7Cltd%29%253F%252F%2Band%2Bservices.jarm.fingerprint%253A%2B4fd21b20d00000021c43d21b21b43d41226dd5dfc615dd4a96265559485910%2Band%2Bservices.tls.certificates.leaf_data.subject.country%253A%2BUS%2Band%2Bservices.tls.certificates.leaf_data.subject.postal_code%253A%2B%252F%253C1001-9999%253E%252F%2B%29)
+
+```dsl
+same_service(
+    services.tls.certificates.leaf_data.pubkey_bit_size: 2048 and
+    services.tls.certificates.leaf_data.subject.organization: /(ACME|Partners|Tech|Cloud|Synergy|Test|Debug)? ?(co|llc|inc|corp|ltd)?/ and
+    services.jarm.fingerprint: 4fd21b20d00000021c43d21b21b43d41226dd5dfc615dd4a96265559485910 and
+    services.tls.certificates.leaf_data.subject.country: US and
+    services.tls.certificates.leaf_data.subject.postal_code: /<1001-9999>/
+)
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/BishopFox/sliver>
 
 </details>
 
