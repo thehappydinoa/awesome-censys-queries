@@ -326,11 +326,11 @@ same_service(
 
 </details>
 
-#### PoshC2 [🔎 &#x2192;](https%3A%2F%2Fsearch.censys.io%2Fsearch%3Fresource%3Dhosts%26q%3Dsame_service%28services.tls.certificates.leaf_data.subject.common_name%253D%2522P18055078%2522%2Band%2Bservices.tls.certificates.leaf_data.subject.province%253D%2522Minnesota%2522%2Band%2Bservices.tls.certificates.leaf_data.subject.locality%253D%2522Minnetonka%2522%2Band%2Bservices.tls.certificates.leaf_data.subject.organization%253D%2522Pajfds%2522%2Band%2Bservices.tls.certificates.leaf_data.subject.organizational_unit%253D%2522Jethpro%2522%29)
+#### PoshC2 [🔎 &#x2192;](https%3A%2F%2Fsearch.censys.io%2Fsearch%3Fresource%3Dhosts%26q%3Dsame_service%28services.tls.certificates.leaf_data.subject.common_name%253D%2522P18055077%2522%2Band%2Bservices.tls.certificates.leaf_data.subject.province%253D%2522Minnesota%2522%2Band%2Bservices.tls.certificates.leaf_data.subject.locality%253D%2522Minnetonka%2522%2Band%2Bservices.tls.certificates.leaf_data.subject.organization%253D%2522Pajfds%2522%2Band%2Bservices.tls.certificates.leaf_data.subject.organizational_unit%253D%2522Jethpro%2522%2B%29)
 
 ```dsl
 same_service(
-    services.tls.certificates.leaf_data.subject.common_name="P18055078" and
+    services.tls.certificates.leaf_data.subject.common_name="P18055077" and
     services.tls.certificates.leaf_data.subject.province="Minnesota" and
     services.tls.certificates.leaf_data.subject.locality="Minnetonka" and
     services.tls.certificates.leaf_data.subject.organization="Pajfds" and
@@ -346,6 +346,8 @@ same_service(
 </details>
 
 #### Sliver C2 [🔎 &#x2192;](https%3A%2F%2Fsearch.censys.io%2Fsearch%3Fresource%3Dhosts%26q%3Dsame_service%28services.tls.certificates.leaf_data.pubkey_bit_size%253A%2B2048%2Band%2Bservices.tls.certificates.leaf_data.subject.organization%253A%2B%252F%28ACME%7CPartners%7CTech%7CCloud%7CSynergy%7CTest%7CDebug%29%253F%2B%253F%28co%7Cllc%7Cinc%7Ccorp%7Cltd%29%253F%252F%2Band%2Bservices.jarm.fingerprint%253A%2B4fd21b20d00000021c43d21b21b43d41226dd5dfc615dd4a96265559485910%2Band%2Bservices.tls.certificates.leaf_data.subject.country%253A%2BUS%2Band%2Bservices.tls.certificates.leaf_data.subject.postal_code%253A%2B%252F%253C1001-9999%253E%252F%2B%29)
+
+> **_NOTE:_**  This search uses regex and requires a paid account.
 
 ```dsl
 same_service(
