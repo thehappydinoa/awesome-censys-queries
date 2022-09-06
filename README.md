@@ -237,10 +237,6 @@ services.certificate: {
 }
 or services.tls.certificates.leaf_data.issuer.common_name: "Major Cobalt Strike"
 or services.tls.certificates.leaf_data.subject.common_name: "Major Cobalt Strike"
-or services.jarm.fingerprint: {
-    "07d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1",
-    "07d14d16d21d21d00042d41d00041de5fb3038104f457d92ba02e9311512c2"
-}
 ```
 
 #### Metasploit Servers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Metasploit%22+and+%28services.tls.certificates.leaf_data.subject.organization%3A+%22Rapid7%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22MetasploitSelfSignedCA%22%29+or+services.jarm.fingerprint%3A+%7B07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d%2C+07d14d16d21d21d07c42d43d000000f50d155305214cf247147c43c0f1a823%7D)
@@ -327,6 +323,48 @@ same_service(
     <summary markdown="span">References</summary>
 
 - <https://github.com/cobbr/Covenant>
+
+</details>
+
+#### PoshC2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.tls.certificates.leaf_data.subject.common_name%3D%22P18055077%22%20and%20services.tls.certificates.leaf_data.subject.province%3D%22Minnesota%22%20and%20services.tls.certificates.leaf_data.subject.locality%3D%22Minnetonka%22%20and%20services.tls.certificates.leaf_data.subject.organization%3D%22Pajfds%22%20and%20services.tls.certificates.leaf_data.subject.organizational_unit%3D%22Jethpro%22%29)
+
+```dsl
+same_service(
+    services.tls.certificates.leaf_data.subject.common_name="P18055077" and
+    services.tls.certificates.leaf_data.subject.province="Minnesota" and
+    services.tls.certificates.leaf_data.subject.locality="Minnetonka" and
+    services.tls.certificates.leaf_data.subject.organization="Pajfds" and
+    services.tls.certificates.leaf_data.subject.organizational_unit="Jethpro"
+)
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/nettitude/PoshC2>
+
+</details>
+
+#### Sliver C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%20services.tls.certificates.leaf_data.pubkey_bit_size%3A%202048%20and%20services.tls.certificates.leaf_data.subject.organization%3A%20%2F%28ACME%7CPartners%7CTech%7CCloud%7CSynergy%7CTest%7CDebug%29%3F%20%3F%28co%7Cllc%7Cinc%7Ccorp%7Cltd%29%3F%2F%20and%20services.jarm.fingerprint%3A%204fd21b20d00000021c43d21b21b43d41226dd5dfc615dd4a96265559485910%20and%20services.tls.certificates.leaf_data.subject.country%3A%20US%20and%20services.tls.certificates.leaf_data.subject.postal_code%3A%20%2F%3C1001-9999%3E%2F%20%29)
+
+```dsl
+same_service(
+    services.tls.certificates.leaf_data.pubkey_bit_size: 2048 and
+    services.tls.certificates.leaf_data.subject.organization: /(ACME|Partners|Tech|Cloud|Synergy|Test|Debug)? ?(co|llc|inc|corp|ltd)?/ and
+    services.jarm.fingerprint: 4fd21b20d00000021c43d21b21b43d41226dd5dfc615dd4a96265559485910 and
+    services.tls.certificates.leaf_data.subject.country: US and
+    services.tls.certificates.leaf_data.subject.postal_code: /<1001-9999>/
+)
+```
+
+> **Note**: This search uses regex and requires a paid account.
+>
+> **Pro-Tip**: Try removing JARM to find even more Sliver instances.
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/BishopFox/sliver>
 
 </details>
 
