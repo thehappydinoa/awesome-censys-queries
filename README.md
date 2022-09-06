@@ -349,8 +349,6 @@ same_service(
 
 > **Note**: This search uses regex and requires a paid account.
 
-> **Pro-Tip**: Try removing JARM to find even more Sliver instances.
-
 ```dsl
 same_service(
     services.tls.certificates.leaf_data.pubkey_bit_size: 2048 and
@@ -360,6 +358,8 @@ same_service(
     services.tls.certificates.leaf_data.subject.postal_code: /<1001-9999>/
 )
 ```
+
+> **Pro-Tip**: Try removing JARM to find even more Sliver instances.
 
 <details>
     <summary markdown="span">References</summary>
