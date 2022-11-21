@@ -381,6 +381,60 @@ services.jarm.fingerprint: "20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe0
 
 </details>
 
+#### Brute Ratel C4 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body_hash%3A+%22sha1%3A1a279f5df4103743b823ec2a6a08436fdf63fe30%22)
+
+```dsl
+services.http.response.body_hash="sha1:1a279f5df4103743b823ec2a6a08436fdf63fe30"
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://bruteratel.com>
+
+</details>
+
+#### Empire C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.body_hash%3A+%22sha1%3Abc517bf173440dad15b99a051389fadc366d5df2%22+and+services.http.response.headers.expires%3A+0+and+services.http.response.headers.cache_control%3A+%22*%22%29)
+
+```dsl
+same_service(
+    services.http.response.body_hash: "sha1:bc517bf173440dad15b99a051389fadc366d5df2"
+    and services.http.response.headers.expires: 0
+    and services.http.response.headers.cache_control: "*"
+)
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://bc-security.gitbook.io/empire-wiki/>
+
+</details>
+
+#### Raccoon Stealer V2 (RecordBreaker C2) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.banner_hashes%3A+%22sha256%3A7987d0c39c4839572ab88c6d82da01395f74e0c31f12d94c58d0e1bed0b0c75c%22)
+
+```dsl
+services.banner_hashes: "sha256:7987d0c39c4839572ab88c6d82da01395f74e0c31f12d94c58d0e1bed0b0c75c"
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://twitter.com/1zrr4h/status/1593377638504087553>
+
+</details>
+
+#### Open Directory Listing Host with Suspicious File Names in their Contents [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%28services.http.response.html_title%3A%22Index+of+%2F%22+or+services.http.response.html_title%3A%22Directory+Listing+for+%2F%22%29+and+services.http.response.body%3A+%2F.*%3F%28metasploit%7Ccobaltstrike%7Csliver%7Ccovenant%7Cbrc4%7Cbrute-ratel%7Ccommander-runme%7Cbruteratel%7C%28badger%7Cshellcode%7Csc%7Cbeacon%7Cartifact%7Cpayload%7Cteamviewer%7Canydesk%7Cmimikatz%7Ccs%29%5C.%28exe%7Cps1%7Cvbs%7Cbin%29%29.*%2F%29)
+
+```dsl
+same_service(
+    (services.http.response.html_title:"Index of /" or services.http.response.html_title:"Directory Listing for /")
+    and services.http.response.body: /.*?(metasploit|cobaltstrike|sliver|covenant|brc4|brute-ratel|commander-runme|bruteratel|(badger|shellcode|sc|beacon|artifact|payload|teamviewer|anydesk|mimikatz|cs)\.(exe|ps1|vbs|bin)).*/
+)
+```
+
+> **Note**: This search uses regex and requires a paid account.
+
 #### Splunk [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.software.product%3A+%22Splunk%22)
 
 ```dsl
@@ -411,7 +465,7 @@ services.http.response.body: '"couchdb": "Welcome"'
 
 ### Dashboards
 
-#### cAdvisor Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60cAdvisor+-+%2F%60+and+services.http.response.status_code%3D200+and+services.http.request.uri%3D%22*%2Fcontainers%2F%22%29)
+#### cAdvisor Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60cAdvisor+-+%2F%60+and+services.http.response.status_code%3D200+and+services.http.request.uri%3D%22*%2Fcontainers%2F%22%29)
 
 ```dsl
 same_service(
@@ -428,7 +482,7 @@ same_service(
 
 </details>
 
-#### HashiCorp Consul Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60Consul+by+HashiCorp%60+and+services.http.request.uri%3A+%22*%2Fui%2F%22%29)
+#### HashiCorp Consul Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60Consul+by+HashiCorp%60+and+services.http.request.uri%3A+%22*%2Fui%2F%22%29)
 
 ```dsl
 same_service(
@@ -444,7 +498,7 @@ same_service(
 
 </details>
 
-#### Netdata Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.Server%3D%22Netdata+Embedded+HTTP*%22+and+services.http.response.html_title%3D%22netdata+dashboard%22%29)
+#### Netdata Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.Server%3D%22Netdata+Embedded+HTTP*%22+and+services.http.response.html_title%3D%22netdata+dashboard%22%29)
 
 ```dsl
 same_service(
@@ -460,7 +514,7 @@ same_service(
 
 </details>
 
-#### Rancher Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.unknown.name%3A+%22X-Rancher-Version%22+and+services.http.response.html_title%3A+%22Loading%26hellip%3B%22%29)
+#### Rancher Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.unknown.name%3A+%22X-Rancher-Version%22+and+services.http.response.html_title%3A+%22Loading%26hellip%3B%22%29)
 
 ```dsl
 same_service(
@@ -622,7 +676,7 @@ services.kubernetes.pod_names: *
 services.http.response.body: "The wp-config.php creation script uses this file"
 ```
 
-#### Unconfigured AdGuard [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RANDOM&per_page=25&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3A+%22Setup+AdGuard+Home%22+and+services.http.request.uri%3D%22*%2Finstall.html%22%29)
+#### Unconfigured AdGuard [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3A+%22Setup+AdGuard+Home%22+and+services.http.request.uri%3D%22*%2Finstall.html%22%29)
 
 ```dsl
 same_service(
@@ -759,3 +813,4 @@ and services.truncated: false
 - [salesforce/jarm](https://github.com/salesforce/jarm)
 - [cedowens/C2-JARM](https://github.com/cedowens/C2-JARM)
 - [emilyaustin/censys-resources](https://github.com/emilyaustin/censys-resources)
+- [drb-ra](https://github.com/drb-ra)
