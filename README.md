@@ -516,6 +516,47 @@ services.tls.certificates.leaf_data.subject.common_name: "DcRat Server"
 
 </details>
 
+#### Mythic [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service(services.tls.certificates.leaf_data.subject.organization%3D%22Mythic%22+and+services.port%3A+7443))
+
+```dsl
+same_service(services.tls.certificates.leaf_data.subject.organization="Mythic" and services.port: 7443)
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://michaelkoczwara.medium.com/hunting-c2-with-shodan-223ca250d06f>
+
+</details>
+
+#### Deimos C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject_dn%3A+%22C%3DUS%2C+ST%3DMinnesota%2C+L%3DMinnetonka%2C+O%3DPajfds%2C+OU%3DJethpro%2C+CN%3DP18055077%22)
+
+```dsl
+same_service((services.http.response.html_title="Deimos C2" or services.tls.certificates.leaf_data.subject.organization="Acme Co") and services.port: 8443)
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://michaelkoczwara.medium.com/hunting-c2-with-shodan-223ca250d06f>
+- <https://github.com/DeimosC2/DeimosC2/blob/2f368a5b151ea2da9f4fcc3627b1eb7d28b38fe5/c2/lib/certs/gen_cert.go>
+
+</details>
+
+#### Posh C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service((services.http.response.html_title%3D%22Deimos+C2%22+or+services.tls.certificates.leaf_data.subject.organization%3D%22Acme+Co%22)+and+services.port%3A+8443))
+
+```dsl
+services.tls.certificates.leaf_data.subject_dn: "C=US, ST=Minnesota, L=Minnetonka, O=Pajfds, OU=Jethpro, CN=P18055077"
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://michaelkoczwara.medium.com/hunting-c2-with-shodan-223ca250d06f>
+- <https://github.com/nettitude/PoshC2/blob/517903431ab43e6d714b24b0752ba111f5d4c2f1/poshc2/server/Config.py#L137>
+
+</details>
+
 #### Open Directory Listing Host with Suspicious File Names in their Contents [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%28services.http.response.html_title%3A%22Index+of+%2F%22+or+services.http.response.html_title%3A%22Directory+Listing+for+%2F%22%29+and+services.http.response.body%3A+%2F.*%3F%28metasploit%7Ccobaltstrike%7Csliver%7Ccovenant%7Cbrc4%7Cbrute-ratel%7Ccommander-runme%7Cbruteratel%7C%28badger%7Cshellcode%7Csc%7Cbeacon%7Cartifact%7Cpayload%7Cteamviewer%7Canydesk%7Cmimikatz%7Ccs%29%5C.%28exe%7Cps1%7Cvbs%7Cbin%29%29.*%2F%29)
 
 ```dsl
@@ -907,3 +948,4 @@ and services.truncated: false
 - [emilyaustin/censys-resources](https://github.com/emilyaustin/censys-resources)
 - [drb-ra](https://github.com/drb-ra)
 - [The State of SSL/TLS Certificate Usage in Malware C&C Communications](https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf)
+- [Hunting C2 - Michael Koczwara](https://michaelkoczwara.medium.com/hunting-c2-with-shodan-223ca250d06f)
