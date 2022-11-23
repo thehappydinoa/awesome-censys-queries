@@ -310,11 +310,11 @@ services.jarm.fingerprint: "00000000000000000041d00000041d9535d5979f591ae8e547c5
 
 </details>
 
-#### Covenant C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.body%3A+%22Blazor%22+and+tls.certificates.leaf_data.issuer.common_name%3A+%22Covenant%22%29)
+#### Covenant C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.body%3A+{%22Blazor%22,%20%22covenant.css%22}+and+tls.certificates.leaf_data.issuer.common_name%3A+%22Covenant%22%29)
 
 ```dsl
 same_service(
-    http.response.body: "Blazor"
+    http.response.body: {"Blazor", "covenant.css"}
     and tls.certificates.leaf_data.issuer.common_name: "Covenant"
 )
 ```
@@ -394,11 +394,11 @@ services.http.response.body_hash="sha1:1a279f5df4103743b823ec2a6a08436fdf63fe30"
 
 </details>
 
-#### Empire C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.body_hash%3A+%22sha1%3Abc517bf173440dad15b99a051389fadc366d5df2%22+and+services.http.response.headers.expires%3A+0+and+services.http.response.headers.cache_control%3A+%22*%22%29)
+#### Empire C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service(services.http.response.body_hash%3A+%7B%22sha1%3Abc517bf173440dad15b99a051389fadc366d5df2%22%2C+%22sha1%3Adcb32e6256459d3660fdc90e4c79e95a921841cc%22%7D+and+services.http.response.headers.expires%3A+0+and+services.http.response.headers.cache_control%3A+%22*%22))
 
 ```dsl
 same_service(
-    services.http.response.body_hash: "sha1:bc517bf173440dad15b99a051389fadc366d5df2"
+    services.http.response.body_hash: {"sha1:bc517bf173440dad15b99a051389fadc366d5df2", "sha1:dcb32e6256459d3660fdc90e4c79e95a921841cc"}
     and services.http.response.headers.expires: 0
     and services.http.response.headers.cache_control: "*"
 )
