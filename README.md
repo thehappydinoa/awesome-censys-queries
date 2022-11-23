@@ -521,7 +521,7 @@ services.tls.certificates.leaf_data.subject.common_name: "DcRat Server"
 ```dsl
 same_service(
     (services.http.response.html_title:"Index of /" or services.http.response.html_title:"Directory Listing for /")
-    and services.http.response.body: /.*?(metasploit|cobaltstrike|sliver|covenant|brc4|brute-ratel|commander-runme|bruteratel|(badger|shellcode|sc|beacon|artifact|payload|teamviewer|anydesk|mimikatz|cs)\.(exe|ps1|vbs|bin)).*/
+    and services.http.response.body: /.*?(metasploit|cobaltstrike|sliver|covenant|brc4|brute-ratel|commander-runme|bruteratel|ps2exe|(badger|shellcode|sc|beacon|artifact|payload|teamviewer|anydesk|mimikatz|cs)\.(exe|ps1|vbs|bin|nupkg)).*/
 )
 ```
 
