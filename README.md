@@ -557,7 +557,7 @@ services.tls.certificates.leaf_data.subject_dn: "C=US, ST=Minnesota, L=Minnetonk
 
 </details>
 
-#### IcedID Banking Trojan  [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject_dn:%20%22CN=localhost,%20C=AU,%20ST=Some-State,%20O=Internet%20Widgits%20Pty%20Ltd%22)
+#### IcedID Banking Trojan [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject_dn:%20%22CN=localhost,%20C=AU,%20ST=Some-State,%20O=Internet%20Widgits%20Pty%20Ltd%22)
 
 ```dsl
 services.tls.certificates.leaf_data.subject_dn: "CN=localhost, C=AU, ST=Some-State, O=Internet Widgits Pty Ltd"
@@ -571,7 +571,7 @@ services.tls.certificates.leaf_data.subject_dn: "CN=localhost, C=AU, ST=Some-Sta
 
 </details>
 
-#### Gozi Malware  [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.issuer_dn%3A+%22C%3DXX%2C+ST%3D1%2C+L%3D1%2C+O%3D1%2C+OU%3D1%2C+CN%3D%5C*%22)
+#### Gozi Malware [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.issuer_dn%3A+%22C%3DXX%2C+ST%3D1%2C+L%3D1%2C+O%3D1%2C+OU%3D1%2C+CN%3D%5C*%22)
 
 ```dsl
 services.tls.certificates.leaf_data.issuer_dn: "C=XX, ST=1, L=1, O=1, OU=1, CN=\*"
