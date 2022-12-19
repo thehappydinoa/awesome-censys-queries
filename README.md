@@ -216,7 +216,7 @@ services.http.response.headers.set_cookie: "NethixSession"
 #### Compromised Mikrotik Router [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.service_name%3A+MIKROTIK_BW+and+%22hacked%22)
 
 ```dsl
-services.service_name: MIKROTIK_BW and "hacked"
+services.service_name: MIKROTIK_BW and services.pptp.hostname: "HACKED"
 ```
 
 <details>
@@ -554,6 +554,33 @@ services.tls.certificates.leaf_data.subject_dn: "C=US, ST=Minnesota, L=Minnetonk
 
 - <https://michaelkoczwara.medium.com/hunting-c2-with-shodan-223ca250d06f>
 - <https://github.com/nettitude/PoshC2/blob/517903431ab43e6d714b24b0752ba111f5d4c2f1/poshc2/server/Config.py#L137>
+
+</details>
+
+#### IcedID Banking Trojan  [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject_dn:%20%22CN=localhost,%20C=AU,%20ST=Some-State,%20O=Internet%20Widgits%20Pty%20Ltd%22)
+
+```dsl
+services.tls.certificates.leaf_data.subject_dn: "CN=localhost, C=AU, ST=Some-State, O=Internet Widgits Pty Ltd"
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://malware.news/t/melting-ice-tracking-icedid-servers-with-a-few-simple-steps/49525>
+- <https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf>
+
+</details>
+
+#### Gozi Malware  [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.issuer_dn%3A+%22C%3DXX%2C+ST%3D1%2C+L%3D1%2C+O%3D1%2C+OU%3D1%2C+CN%3D%5C*%22)
+
+```dsl
+services.tls.certificates.leaf_data.issuer_dn: "C=XX, ST=1, L=1, O=1, OU=1, CN=\*"
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf>
 
 </details>
 
