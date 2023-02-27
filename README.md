@@ -421,6 +421,20 @@ services.banner_hashes: "sha256:7987d0c39c4839572ab88c6d82da01395f74e0c31f12d94c
 
 </details>
 
+#### NimPlant C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.Server:%20%22NimPlant%20C2%20Server%22%20or%20services.http.response.body_hashes:%20%22sha256:636d68bd1bc19d763de95d0a6406f4f77953f9973389857353ac445e2b6fff87%22)
+
+```dsl
+services.http.response.headers.Server: "NimPlant C2 Server" or services.http.response.body_hashes: "sha256:636d68bd1bc19d763de95d0a6406f4f77953f9973389857353ac445e2b6fff87"
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/chvancooten/NimPlant>
+- <https://twitter.com/chvancooten/status/1629911090774589442>
+
+</details>
+
 #### RedGuard [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject_dn%3A+%22C%3DCN%2C+L%3DHangZhou%2C+O%3DAlibaba+%28China%29+Technology+Co.%5C%5C%2C+Ltd.%2C+CN%3D%5C*.aliyun.com%22)
 
 ```dsl
