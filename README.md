@@ -134,6 +134,19 @@ services.http.response.html_title: "XZERES Wind"
     <img src="./images/xzeres-wind-turbine.png" alt="XZERES Wind Turbine" width="300px" />
 </details>
 
+#### Saferoads VMS [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=services.http.response.html_title:%20%22Saferoads%20VMS%22)
+
+```dsl
+services.http.response.html_title: "Saferoads VMS"
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://www.saferoads.com.au/zone-vms>
+
+</details>
+
 ### Internet of Things Devices
 
 #### Roombas [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.issuer.common_name%3A+%22Roomba+CA%22)
