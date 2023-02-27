@@ -68,8 +68,7 @@ services.tls.certificates.leaf_data.subject.common_name: "Prismview" or services
 #### Gas Station Pump Controllers (ATGs) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=%28same_service%28port%3A+10001+and+banner%3A+%22IN-TANK+INVENTORY%22%29+or+services.service_name%3A+ATG%29+and+services.truncated%3A+false)
 
 ```dsl
-(same_service(port: 10001 and banner: "IN-TANK INVENTORY")
-or services.service_name: ATG) and services.truncated: false
+(same_service(port: 10001 and banner: "IN-TANK INVENTORY") or services.service_name: ATG) and services.truncated: false
 ```
 
 > **Pro-Tip**: Add `services.truncated: false` to your query to exclude honeypots (Hosts with 100+ services).
@@ -173,7 +172,7 @@ services.http.response.html_title: "Emerson Site Supervisor"
 
 </details>
 
-#### Brightsign Digital Signi [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.http.response.html_title%3A+%22%27BrightSign%26reg%3B%22)
+#### Brightsign Digital Sign [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.http.response.html_title%3A+%22%27BrightSign%26reg%3B%22)
 
 ```dsl
 services.http.response.html_title: "'BrightSign&reg;"
@@ -182,10 +181,7 @@ services.http.response.html_title: "'BrightSign&reg;"
 #### Elnet Power Meters [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=same_service%28services.http.response.headers.Server%3D%22CAL1.0%22+and+services.http.response.status_code%3A+200%29)
 
 ```dsl
-same_service(
-    services.http.response.headers.Server="CAL1.0"
-    and services.http.response.status_code: 200
-)
+same_service(services.http.response.headers.Server="CAL1.0" and services.http.response.status_code: 200)
 ```
 
 <details>
@@ -294,6 +290,7 @@ same_service(port: 7443 and tls.certificates.leaf_data.subject.organization: "My
     <summary markdown="span">References</summary>
 
 - <https://github.com/its-a-feature/Mythic>
+- <https://michaelkoczwara.medium.com/hunting-c2-with-shodan-223ca250d06f>
 
 </details>
 
@@ -516,19 +513,6 @@ services.tls.certificates.leaf_data.subject.common_name: "DcRat Server"
 
 </details>
 
-#### Mythic [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service(services.tls.certificates.leaf_data.subject.organization%3D%22Mythic%22+and+services.port%3A+7443))
-
-```dsl
-same_service(services.tls.certificates.leaf_data.subject.organization="Mythic" and services.port: 7443)
-```
-
-<details>
-    <summary markdown="span">References</summary>
-
-- <https://michaelkoczwara.medium.com/hunting-c2-with-shodan-223ca250d06f>
-
-</details>
-
 #### Deimos C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject_dn%3A+%22C%3DUS%2C+ST%3DMinnesota%2C+L%3DMinnetonka%2C+O%3DPajfds%2C+OU%3DJethpro%2C+CN%3DP18055077%22)
 
 ```dsl
@@ -628,11 +612,7 @@ services.http.response.body: '"couchdb": "Welcome"'
 #### cAdvisor Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60cAdvisor+-+%2F%60+and+services.http.response.status_code%3D200+and+services.http.request.uri%3D%22*%2Fcontainers%2F%22%29)
 
 ```dsl
-same_service(
-    services.http.response.html_title=`cAdvisor - /`
-    and services.http.response.status_code=200
-    and services.http.request.uri="*/containers/"
-)
+same_service(services.http.response.html_title=`cAdvisor - /` and services.http.response.status_code=200 and services.http.request.uri="*/containers/")
 ```
 
 <details>
@@ -645,10 +625,7 @@ same_service(
 #### HashiCorp Consul Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60Consul+by+HashiCorp%60+and+services.http.request.uri%3A+%22*%2Fui%2F%22%29)
 
 ```dsl
-same_service(
-    services.http.response.html_title=`Consul by HashiCorp`
-    and services.http.request.uri: "*/ui/"
-)
+same_service(services.http.response.html_title=`Consul by HashiCorp` and services.http.request.uri: "*/ui/")
 ```
 
 <details>
@@ -661,10 +638,7 @@ same_service(
 #### Netdata Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.Server%3D%22Netdata+Embedded+HTTP*%22+and+services.http.response.html_title%3D%22netdata+dashboard%22%29)
 
 ```dsl
-same_service(
-    services.http.response.headers.Server="Netdata Embedded HTTP*"
-    and services.http.response.html_title="netdata dashboard"
-)
+same_service(services.http.response.headers.Server="Netdata Embedded HTTP*" and services.http.response.html_title="netdata dashboard")
 ```
 
 <details>
@@ -677,19 +651,13 @@ same_service(
 #### Rancher Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.unknown.name%3A+%22X-Rancher-Version%22+and+services.http.response.html_title%3A+%22Loading%26hellip%3B%22%29)
 
 ```dsl
-same_service(
-    services.http.response.headers.unknown.name: "X-Rancher-Version"
-    and services.http.response.html_title: "Loading&hellip;"
-)
+same_service(services.http.response.headers.unknown.name: "X-Rancher-Version" and services.http.response.html_title: "Loading&hellip;")
 ```
 
 #### Traefik Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.request.uri%3A+%22*%2Fdashboard%2F%22+and+services.http.response.html_title%3A+%22Traefik%22%29)
 
 ```dsl
-same_service(
-    services.http.request.uri: "*/dashboard/"
-    and services.http.response.html_title: "Traefik"
-)
+same_service(services.http.request.uri: "*/dashboard/" and services.http.response.html_title: "Traefik")
 ```
 
 <details>
@@ -702,10 +670,7 @@ same_service(
 #### Weave Scope [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22Weave+Scope%22+and+services.http.response.body%3D%22*WEAVEWORKS_CSRF*%22%29)
 
 ```dsl
-same_service(
-    services.http.response.html_title: "Weave Scope"
-    and services.http.response.body="*WEAVEWORKS_CSRF*"
-)
+same_service(services.http.response.html_title: "Weave Scope" and services.http.response.body="*WEAVEWORKS_CSRF*")
 ```
 
 <details>
@@ -839,10 +804,7 @@ services.http.response.body: "The wp-config.php creation script uses this file"
 #### Unconfigured AdGuard [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3A+%22Setup+AdGuard+Home%22+and+services.http.request.uri%3D%22*%2Finstall.html%22%29)
 
 ```dsl
-same_service(
-    services.http.response.html_title: "Setup AdGuard Home"
-    and services.http.request.uri="*/install.html"
-)
+same_service(services.http.response.html_title: "Setup AdGuard Home" and services.http.request.uri="*/install.html")
 ```
 
 <details>
@@ -858,7 +820,7 @@ same_service(
 same_service(services.http.response.html_title: "node exporter" and services.http.response.body: "/metrics")
 ```
 
-#### VictoriaMetrics VMAgent [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body%3A+%22%3Ch2%3Evmagent%3C%2Fh2%3E%22)
+#### VictoriaMetrics Agent [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body%3A+%22%3Ch2%3Evmagent%3C%2Fh2%3E%22)
 
 ```dsl
 services.http.response.body: "<h2>vmagent</h2>"
@@ -879,11 +841,7 @@ services.http.response.body: "<h2>vmagent</h2>"
 #### SonarQube [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.html_title%3A+%22SonarQube%22+and+http.response.status_code%3A+200+and+http.response.protocol%09%3A+%22HTTP%2F1.1%22%29)
 
 ```dsl
-same_service(
-    http.response.html_title: "SonarQube"
-    and http.response.status_code: 200
-    and http.response.protocol: "HTTP/1.1"
-)
+same_service(http.response.html_title: "SonarQube" and http.response.status_code: 200 and http.response.protocol: "HTTP/1.1")
 ```
 
 <details>
@@ -928,38 +886,19 @@ same_service(services.port: 53 and not services.service_name: DNS) and services.
 #### Non-Standard Services Listening on Common Ports [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.port%3A+%7B21%2C+22%2C+80%7D+and+not+services.service_name%3A+%7BHTTP%2C+SSH%2C+FTP%2C+UNKNOWN%7D%29+and+services.truncated%3A+false)
 
 ```dsl
-same_service(
-    services.port: {21, 22, 80}
-    and not services.service_name: {HTTP, SSH, FTP, UNKNOWN}
-)
-and services.truncated: false
+same_service(services.port: {21, 22, 80} and not services.service_name: {HTTP, SSH, FTP, UNKNOWN}) and services.truncated: false
 ```
 
 #### Services Listening on Port 22 that are not SSH [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28not+services.service_name%3A+%7BSSH%7D+and+services.port%3A+22+and+not+services.banner%3A+%7B%22Connection+refused%22%2C+%22SSH-%22%2C+%22Exceeded+MaxStartups%22%2C+%22Too+many+users%22%2C+%22Connection+closed+by+server%22%7D%29+and+services.truncated%3A+false)
 
 ```dsl
-same_service(
-    not services.service_name: {SSH}
-    and services.port: 22
-    and not services.banner: {"Connection refused", "SSH-", "Exceeded MaxStartups", "Too many users", "Connection closed by server"}
-)
-and services.truncated: false
+same_service(services.port: 22 and not services.service_name: {SSH} and not services.banner: {"Connection refused", "SSH-", "Exceeded MaxStartups", "Too many users", "Connection closed by server"}) and services.truncated: false
 ```
 
 #### Services Listening on 80 or 443 that are not HTTP or HTTPS (or UNKNOWN with TLS) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=not+same_service%28services.port%3A+443+and+services.name%3A+UNKNOWN+and+services.tls.certificates.leaf_data.subject_dn%3A+*+%29+and+same_service%28services.port%3A+%7B80%2C+443%7D+and+not+services.service_name%3A+%7BKUBERNETES%2C+ANYCONNECT%2C+OPENVPN%2C+HTTP%7D+and+not+services.banner%3A+%E2%80%9CHTTP%2F%E2%80%9D+%29++and+services.truncated%3A+false)
 
 ```dsl
-not same_service(
-    services.port: 443
-    and services.name: UNKNOWN
-    and services.tls.certificates.leaf_data.subject_dn: *
-)
-and same_service(
-    services.port: {80, 443}
-    and not services.service_name: {KUBERNETES, ANYCONNECT, OPENVPN, HTTP}
-    and not services.banner: “HTTP/”
-)
-and services.truncated: false
+not same_service(services.port: 443 and services.name: UNKNOWN and services.tls.certificates.leaf_data.subject_dn: *) and same_service(services.port: {80, 443} and not services.service_name: {KUBERNETES, ANYCONNECT, OPENVPN, HTTP} and not services.banner: “HTTP/”) and services.truncated: false
 ```
 
 ## License
