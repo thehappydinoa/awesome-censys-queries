@@ -121,7 +121,7 @@ services.http.response.headers.server: "EIG Embedded Web Server"
     <img src="./images/gaugetech.png" alt="GaugeTech" width="300px" />
 </details>
 
-#### XZERES Wind Turbine [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=services.http.response.html_title%3A+%22XZERES+Wind%22)
+#### XZERES Wind Turbines [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=services.http.response.html_title%3A+%22XZERES+Wind%22)
 
 ```dsl
 services.http.response.html_title: "XZERES Wind"
@@ -134,7 +134,20 @@ services.http.response.html_title: "XZERES Wind"
     <img src="./images/xzeres-wind-turbine.png" alt="XZERES Wind Turbine" width="300px" />
 </details>
 
-#### Saferoads VMS [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=services.http.response.html_title:%20%22Saferoads%20VMS%22)
+#### Nordex Wind Turbine Farms [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Nordex+Control%22)
+
+```dsl
+services.http.response.html_title: "Nordex Control"
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://www.cisa.gov/news-events/ics-alerts/ics-alert-10-307-01>
+
+</details>
+
+#### Saferoads VMS Signs [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title:%20%22Saferoads%20VMS%22)
 
 ```dsl
 services.http.response.html_title: "Saferoads VMS"
@@ -185,13 +198,13 @@ services.http.response.html_title: "Emerson Site Supervisor"
 
 </details>
 
-#### Brightsign Digital Sign [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=services.http.response.html_title%3A+%22%27BrightSign%26reg%3B%22)
+#### Brightsign Digital Sign [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&q=services.http.response.html_title%3A+%22%27BrightSign%26reg%3B%22)
 
 ```dsl
 services.http.response.html_title: "'BrightSign&reg;"
 ```
 
-#### Elnet Power Meters [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=same_service%28services.http.response.headers.Server%3D%22CAL1.0%22+and+services.http.response.status_code%3A+200%29)
+#### Elnet Power Meters [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&q=same_service%28services.http.response.headers.Server%3D%22CAL1.0%22+and+services.http.response.status_code%3A+200%29)
 
 ```dsl
 same_service(services.http.response.headers.Server="CAL1.0" and services.http.response.status_code: 200)
