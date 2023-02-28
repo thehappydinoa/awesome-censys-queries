@@ -134,10 +134,10 @@ services.http.response.html_title: "XZERES Wind"
     <img src="./images/xzeres-wind-turbine.png" alt="XZERES Wind Turbine" width="300px" />
 </details>
 
-#### Nordex Wind Turbine Farms [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Nordex+Control%22)
+#### Nordex Wind Turbine Farms [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Nordex+Control%22+or+services.tls.certificates.leaf_data.issuer.domain_component%3A+%22NORDEX-AG%22)
 
 ```dsl
-services.http.response.html_title: "Nordex Control"
+services.http.response.html_title: "Nordex Control" or services.tls.certificates.leaf_data.issuer.domain_component: "NORDEX-AG"
 ```
 
 <details>
