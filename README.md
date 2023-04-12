@@ -941,10 +941,6 @@ same_service(services.port: 22 and not services.service_name: {SSH} and not serv
 not same_service(services.port: 443 and services.name: UNKNOWN and services.tls.certificates.leaf_data.subject_dn: *) and same_service(services.port: {80, 443} and not services.service_name: {KUBERNETES, ANYCONNECT, OPENVPN, HTTP} and not services.banner: “HTTP/”) and services.truncated: false
 ```
 
-## License
-
-[![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
-
 ## Credits
 
 - [jakejarvis/awesome-shodan-queries](https://github.com/jakejarvis/awesome-shodan-queries)
@@ -955,3 +951,11 @@ not same_service(services.port: 443 and services.name: UNKNOWN and services.tls.
 - [drb-ra](https://github.com/drb-ra)
 - [The State of SSL/TLS Certificate Usage in Malware C&C Communications](https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf)
 - [Hunting C2 - Michael Koczwara](https://michaelkoczwara.medium.com/hunting-c2-with-shodan-223ca250d06f)
+
+## License
+
+[![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=thehappydinoa/awesome-censys-queries&type=Date)](https://star-history.com/#thehappydinoa/awesome-censys-queries&Date)
