@@ -39,8 +39,9 @@ Interested in contributing in another way? [See the contributing guidelines](CON
   * [Media Servers](#media-servers)
   * [Random Services](#random-services)
   * [Advanced Queries](#advanced-queries)
-- [License](#license)
 - [Credits](#credits)
+- [License](#license)
+- [Star History](#star-history)
 
 <!-- tocstop -->
 
