@@ -609,6 +609,21 @@ services.tls.certificates.leaf_data.issuer_dn: "C=XX, ST=1, L=1, O=1, OU=1, CN=\
 
 </details>
 
+#### Pupy RAT C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.headers.Etag%3D%22%5C%22aa3939fc357723135870d5036b12a67097b03309%5C%22%22+AND+services.http.response.headers.Server%3D%22nginx%2F1.13.8%22%29+OR+same_service%28services.tls.certificates.leaf_data.issuer.organization%3A%2F%5Ba-zA-Z%5D%7B10%7D%2F+AND++services.tls.certificates.leaf_data.subject.organization%3A%2F%5Ba-zA-Z%5D%7B10%7D%2F+AND+services.tls.certificates.leaf_data.subject.organizational_unit%3D%22CONTROL%22%29)
+
+```dsl
+same_service(services.http.response.headers.Etag="\"aa3939fc357723135870d5036b12a67097b03309\"" and services.http.response.headers.Server="nginx/1.13.8") or same_service(services.tls.certificates.leaf_data.issuer.organization:/[a-zA-Z]{10}/ and  services.tls.certificates.leaf_data.subject.organization:/[a-zA-Z]{10}/ and services.tls.certificates.leaf_data.subject.organizational_unit="CONTROL")
+```
+
+> **Note**: This search uses regex and requires a paid account.
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/n1nj4sec/pupy>
+
+</details>
+
 #### Open Directory Listing Host with Suspicious File Names in their Contents [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%28services.http.response.html_title%3A%22Index+of+%2F%22+or+services.http.response.html_title%3A%22Directory+Listing+for+%2F%22%29+and+services.http.response.body%3A+%2F.*%3F%28metasploit%7Ccobaltstrike%7Csliver%7Ccovenant%7Cbrc4%7Cbrute-ratel%7Ccommander-runme%7Cbruteratel%7C%28badger%7Cshellcode%7Csc%7Cbeacon%7Cartifact%7Cpayload%7Cteamviewer%7Canydesk%7Cmimikatz%7Ccs%29%5C.%28exe%7Cps1%7Cvbs%7Cbin%29%29.*%2F%29)
 
 ```dsl
