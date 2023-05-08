@@ -638,6 +638,19 @@ services.banner="HTTP/1.1 401 Unauthorized\r\nServer: Microsoft-IIS/7.5\r\nDate:
 
 </details>
 
+#### Titan Stealer C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body%3A+%22Titan+Stealer%22)
+
+```dsl
+services.http.response.body: "Titan Stealer"
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://twitter.com/BushidoToken/status/1633458241421320192>
+
+</details>
+
 #### Open Directory Listing Host with Suspicious File Names in their Contents [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%28services.http.response.html_title%3A%22Index+of+%2F%22+or+services.http.response.html_title%3A%22Directory+Listing+for+%2F%22%29+and+services.http.response.body%3A+%2F.*%3F%28cve%7Cmetasploit%7Ccobaltstrike%7Csliver%7Ccovenant%7Cbrc4%7Cbrute-ratel%7Ccommander-runme%7Cbruteratel%7Cps2exe%7C%28badger%7Cshellcode%7Csc%7Cbeacon%7Cartifact%7Cpayload%7Cteamviewer%7Canydesk%7Cmimikatz%7Ccs%7Crclone%29%5C.%28exe%7Cps1%7Cvbs%7Cbin%7Cnupkg%29%29.*%2F%29)
 
 ```dsl
