@@ -624,6 +624,20 @@ same_service(services.http.response.headers.Etag="\"aa3939fc357723135870d5036b12
 
 </details>
 
+#### Responder Server [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.banner%3D%22HTTP%2F1.1+401+Unauthorized%5Cr%5CnServer%3A+Microsoft-IIS%2F7.5%5Cr%5CnDate%3A++%3CREDACTED%3E%5Cr%5CnContent-Type%3A+text%2Fhtml%5Cr%5CnWWW-Authenticate%3A+NTLM%5Cr%5CnContent-Length%3A+0%5Cr%5Cn%22)
+
+```dsl
+services.banner="HTTP/1.1 401 Unauthorized\r\nServer: Microsoft-IIS/7.5\r\nDate:  <REDACTED>\r\nContent-Type: text/html\r\nWWW-Authenticate: NTLM\r\nContent-Length: 0\r\n"
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://github.com/lgandx/Responder>
+- <https://github.com/lgandx/Responder/blob/07c963f5ea52e27977ef603de180d446d009ed41/tools/MultiRelay/RelayMultiPackets.py#L93>
+
+</details>
+
 #### Open Directory Listing Host with Suspicious File Names in their Contents [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%28services.http.response.html_title%3A%22Index+of+%2F%22+or+services.http.response.html_title%3A%22Directory+Listing+for+%2F%22%29+and+services.http.response.body%3A+%2F.*%3F%28cve%7Cmetasploit%7Ccobaltstrike%7Csliver%7Ccovenant%7Cbrc4%7Cbrute-ratel%7Ccommander-runme%7Cbruteratel%7Cps2exe%7C%28badger%7Cshellcode%7Csc%7Cbeacon%7Cartifact%7Cpayload%7Cteamviewer%7Canydesk%7Cmimikatz%7Ccs%7Crclone%29%5C.%28exe%7Cps1%7Cvbs%7Cbin%7Cnupkg%29%29.*%2F%29)
 
 ```dsl
