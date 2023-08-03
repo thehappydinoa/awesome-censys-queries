@@ -941,6 +941,12 @@ same_service(http.response.html_title: "SonarQube" and http.response.status_code
 
 ### Advanced Queries
 
+#### IPv6 Hosts [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=ip%3A%222001%3A%3A%2F3%22&ref=awesome-censys-queries)
+
+```dsl
+ip:"2001::/3"
+```
+
 #### Honeypots Hosts [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.truncated%3A+true&ref=awesome-censys-queries)
 
 ```dsl
