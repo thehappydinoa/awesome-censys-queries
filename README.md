@@ -778,10 +778,10 @@ same_service(banner: "Counter-Strike: Global Offensive Server" and service_name:
 
 ### Media Servers
 
-#### Plex Media Server [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.unknown.name%3A+%22X-Plex-Protocol%22&ref=awesome-censys-queries)
+#### Plex Media Server [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.software.vendor%3A+%22Plex%22&ref=awesome-censys-queries)
 
 ```dsl
-services.http.response.headers.unknown.name: "X-Plex-Protocol"
+services.software.vendor: "Plex"
 ```
 
 <details>
