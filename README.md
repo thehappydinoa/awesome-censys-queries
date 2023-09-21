@@ -153,10 +153,10 @@ services.http.response.html_title: "Nordex Control" or services.tls.certificates
 
 </details>
 
-#### Saferoads VMS Signs [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title:%20%22Saferoads%20VMS%22&ref=awesome-censys-queries)
+#### Saferoads VMS Signs [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.software%3A+%28vendor%3A+%22Saferoads%22+and+product%3A+%22VMS%22%29&ref=awesome-censys-queries)
 
 ```dsl
-services.http.response.html_title: "Saferoads VMS"
+services.software: (vendor: "Saferoads" and product: "VMS")
 ```
 
 <details>
