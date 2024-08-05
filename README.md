@@ -776,7 +776,7 @@ same_service(services.http.response.html_title: "Weave Scope" and services.http.
 same_service(banner: "Counter-Strike: Global Offensive Server" and service_name: VALVE)
 ```
 
-#### FiveM [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=q=services%3A+%28port%3A+30120+and+http.response.headers%3A+%28key%3A+"Location"+and+value.headers%3A+"https%3A%2F%2Fcfx.re%2Fjoin%2F*"%29%29&ref=awesome-censys-queries)
+#### FiveM [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services%3A+%28port%3A+30120+and+http.response.headers%3A+%28key%3A+"Location"+and+value.headers%3A+"https%3A%2F%2Fcfx.re%2Fjoin%2F*"%29%29&ref=awesome-censys-queries)
 
 ```dsl
 services: (port: 30120 and http.response.headers: (key: "Location" and value.headers: "https://cfx.re/join/*"))
