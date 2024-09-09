@@ -770,7 +770,7 @@ same_service(services.http.response.html_title: "Weave Scope" and services.http.
 
 ### Game Servers
 
-#### Counter-Strike Gameservers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28banner%3A+%22Counter-Strike%3A+Global+Offensive+Server%22+and+service_name%3A+VALVE%29&ref=awesome-censys-queries)
+#### Counter-Strike Gameservers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28banner%3A+%22Counter-Strike%22+and+service_name%3A+VALVE%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(banner: "Counter-Strike" and service_name: VALVE)
