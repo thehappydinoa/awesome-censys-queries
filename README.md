@@ -797,6 +797,19 @@ services.software.vendor: "Plex"
 
 </details>
 
+#### Jellyfin Media Server [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.software.vendor%3A+%22Jellyfin%22&ref=awesome-censys-queries)
+
+```dsl
+services.software.vendor: "Jellyfin"
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://jellyfin.org/>
+
+</details>
+
 #### MythWeb [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.request.uri%3A+%22mythweb%22&ref=awesome-censys-queries)
 
 ```dsl
