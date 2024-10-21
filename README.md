@@ -768,6 +768,19 @@ same_service(services.http.response.html_title: "Weave Scope" and services.http.
 
 </details>
 
+#### Coolify [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services%3A+(port%3A+8000+and+services.http.response.html_title%3A+%22Coolify%22))
+
+```dsl
+services: (port: 8000 and services.http.response.html_title: "Coolify")
+```
+
+<details>
+    <summary markdown="span">References</summary>
+
+- <https://coolify.io/>
+
+</details>
+
 ### Game Servers
 
 #### Counter-Strike Gameservers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28banner%3A+%22Counter-Strike%22+and+service_name%3A+VALVE%29&ref=awesome-censys-queries)
