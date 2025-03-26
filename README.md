@@ -68,7 +68,7 @@ services.tls.certificates.leaf_data.subject.common_name: "Prismview" or services
 
 <details>
     <summary markdown="span">Screenshot</summary>
-    <img src="./images/prismview.png" alt="Prismview" width="300px" />
+    <img src="./images/prismview.png" alt="prismview" width="500px" />
 </details>
 
 #### Gas Station Pump Controllers (ATGs) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=%28same_service%28port%3A+10001+and+banner%3A+%22IN-TANK+INVENTORY%22%29+or+services.service_name%3A+ATG%29+and+services.truncated%3A+false&ref=awesome-censys-queries)
@@ -81,7 +81,7 @@ services.tls.certificates.leaf_data.subject.common_name: "Prismview" or services
 
 <details>
     <summary markdown="span">Screenshot</summary>
-    <img src="./images/atg.png" alt="ATG" width="300px" />
+    <img src="./images/atg.png" alt="atg" width="500px" />
 </details>
 
 #### Electric Vehicle Chargers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.headers.server%3A+%22gSOAP%2F2.8%22+and+http.response.headers.content_length%3A+583%29&ref=awesome-censys-queries)
@@ -124,7 +124,7 @@ services.http.response.headers.server: "EIG Embedded Web Server"
 
 <details>
     <summary markdown="span">Screenshot</summary>
-    <img src="./images/gaugetech.png" alt="GaugeTech" width="300px" />
+    <img src="./images/gaugetech.png" alt="gaugetech" width="500px" />
 </details>
 
 #### XZERES Wind Turbines [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=services.http.response.html_title%3A+%22XZERES+Wind%22&ref=awesome-censys-queries)
@@ -137,7 +137,7 @@ services.http.response.html_title: "XZERES Wind"
 
 <details>
     <summary markdown="span">Screenshot</summary>
-    <img src="./images/xzeres-wind-turbine.png" alt="XZERES Wind Turbine" width="300px" />
+    <img src="./images/xzeres-wind-turbine.png" alt="xzeres-wind-turbine" width="500px" />
 </details>
 
 #### Nordex Wind Turbine Farms [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Nordex+Control%22+or+services.tls.certificates.leaf_data.issuer.domain_component%3A+%22NORDEX-AG%22&ref=awesome-censys-queries)
@@ -194,7 +194,7 @@ services.http.response.html_title: "Emerson Site Supervisor"
 
 <details>
     <summary markdown="span">Screenshot</summary>
-    <img src="./images/emerson-site-supervisor.png" alt="Emerson" width="500px" />
+    <img src="./images/emerson-site-supervisor.png" alt="emerson-site-supervisor" width="500px" />
 </details>
 
 <details>
@@ -204,13 +204,13 @@ services.http.response.html_title: "Emerson Site Supervisor"
 
 </details>
 
-#### Brightsign Digital Sign [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&q=services.http.response.html_title%3A+%22%27BrightSign%26reg%3B%22&ref=awesome-censys-queries)
+#### Brightsign Digital Sign [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22%27BrightSign%26reg%3B%22&ref=awesome-censys-queries)
 
 ```dsl
 services.http.response.html_title: "'BrightSign&reg;"
 ```
 
-#### Elnet Power Meters [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&q=same_service%28services.http.response.headers.Server%3D%22CAL1.0%22+and+services.http.response.status_code%3A+200%29&ref=awesome-censys-queries)
+#### Elnet Power Meters [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.headers.Server%3D%22CAL1.0%22+and+services.http.response.status_code%3A+200%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(services.http.response.headers.Server="CAL1.0" and services.http.response.status_code: 200)
@@ -218,7 +218,7 @@ same_service(services.http.response.headers.Server="CAL1.0" and services.http.re
 
 <details>
     <summary markdown="span">Screenshot</summary>
-    <img src="./images/elnet.png" alt="Elnet" width="500px" />
+    <img src="./images/elnet.png" alt="elnet" width="500px" />
 </details>
 
 <details>
@@ -241,7 +241,7 @@ services.http.response.headers.set_cookie: "NethixSession"
 
 </details>
 
-#### Compromised Mikrotik Router [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.service_name%3A+MIKROTIK_BW+and+%22hacked%22&ref=awesome-censys-queries)
+#### Compromised Mikrotik Router [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.service_name%3A+MIKROTIK_BW+and+services.pptp.hostname%3A+%22HACKED%22&ref=awesome-censys-queries)
 
 ```dsl
 services.service_name: MIKROTIK_BW and services.pptp.hostname: "HACKED"
@@ -256,7 +256,7 @@ services.service_name: MIKROTIK_BW and services.pptp.hostname: "HACKED"
 
 ### Security Applications
 
-#### Cobalt Strike Servers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.certificate%3A+%7B%2264257fc0fac31c01a5ccd816c73ea86e639260da1604d04db869bb603c2886e6%22%2C+%2287f2085c32b6a2cc709b365f55873e207a9caa10bffecf2fd16d3cf9d94d390c%22%7D+or+services.tls.certificates.leaf_data.issuer.common_name%3A+%22Major+Cobalt+Strike%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22Major+Cobalt+Strike%22+or+services.jarm.fingerprint%3A+%7B%2207d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1%22%2C+%2207d14d16d21d21d00042d41d00041de5fb3038104f457d92ba02e9311512c2%22%7D&ref=awesome-censys-queries)
+#### Cobalt Strike Servers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.certificate%3A+%7B%0A++++%2264257fc0fac31c01a5ccd816c73ea86e639260da1604d04db869bb603c2886e6%22%2C%0A++++%2287f2085c32b6a2cc709b365f55873e207a9caa10bffecf2fd16d3cf9d94d390c%22%0A%7D%0Aor+services.tls.certificates.leaf_data.issuer.common_name%3A+%22Major+Cobalt+Strike%22%0Aor+services.tls.certificates.leaf_data.subject.common_name%3A+%22Major+Cobalt+Strike%22&ref=awesome-censys-queries)
 
 ```dsl
 services.certificate: {
@@ -267,7 +267,7 @@ or services.tls.certificates.leaf_data.issuer.common_name: "Major Cobalt Strike"
 or services.tls.certificates.leaf_data.subject.common_name: "Major Cobalt Strike"
 ```
 
-#### Metasploit Servers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Metasploit%22+and+%28services.tls.certificates.leaf_data.subject.organization%3A+%22Rapid7%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22MetasploitSelfSignedCA%22%29+or+services.jarm.fingerprint%3A+%7B07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d%2C+07d14d16d21d21d07c42d43d000000f50d155305214cf247147c43c0f1a823%7D&ref=awesome-censys-queries)
+#### Metasploit Servers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Metasploit%22+and+%28%0A++++services.tls.certificates.leaf_data.subject.organization%3A+%22Rapid7%22%0A++++or+services.tls.certificates.leaf_data.subject.common_name%3A+%22MetasploitSelfSignedCA%22%0A%29%0Aor+services.jarm.fingerprint%3A+%7B%0A++++%2207d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d%22%2C%0A++++%2207d14d16d21d21d07c42d43d000000f50d155305214cf247147c43c0f1a823%22%0A%7D&ref=awesome-censys-queries)
 
 ```dsl
 services.http.response.html_title: "Metasploit" and (
@@ -280,14 +280,14 @@ or services.jarm.fingerprint: {
 }
 ```
 
-#### Nessus Scanner Servers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.server%3A+%22NessusWWW%22+or+services.tls.certificates.leaf_data.subject.organizational_unit%3A+%22Nessus+Server%22&ref=awesome-censys-queries)
+#### Nessus Scanner Servers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.server%3A+%22NessusWWW%22%0Aor+services.tls.certificates.leaf_data.subject.organizational_unit%3A+%22Nessus+Server%22&ref=awesome-censys-queries)
 
 ```dsl
 services.http.response.headers.server: "NessusWWW"
 or services.tls.certificates.leaf_data.subject.organizational_unit: "Nessus Server"
 ```
 
-#### NTOP Network Analyzers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Welcome+to+ntopng%22+or+same_service%28services.http.response.html_title%3A+%22Global+Traffic+Statistics%22+and+services.http.response.headers.server%3A+%22ntop%2F*%22%29&ref=awesome-censys-queries)
+#### NTOP Network Analyzers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.html_title%3A+%22Welcome+to+ntopng%22%0Aor+same_service%28%0A++++services.http.response.html_title%3A+%22Global+Traffic+Statistics%22%0A++++and+services.http.response.headers.server%3A+%22ntop%2F%2A%22%0A%29&ref=awesome-censys-queries)
 
 ```dsl
 services.http.response.html_title: "Welcome to ntopng"
@@ -297,7 +297,7 @@ or same_service(
 )
 ```
 
-#### Merlin C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38&ref=awesome-censys-queries)
+#### Merlin C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+%2229d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38%22&ref=awesome-censys-queries)
 
 ```dsl
 services.jarm.fingerprint: "29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38"
@@ -326,7 +326,7 @@ same_service(port: 7443 and tls.certificates.leaf_data.subject.organization: "My
 
 </details>
 
-#### Deimos C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+00000000000000000041d00000041d9535d5979f591ae8e547c5e5743e5b64&ref=awesome-censys-queries)
+#### Deimos C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+%2200000000000000000041d00000041d9535d5979f591ae8e547c5e5743e5b64%22&ref=awesome-censys-queries)
 
 ```dsl
 services.jarm.fingerprint: "00000000000000000041d00000041d9535d5979f591ae8e547c5e5743e5b64"
@@ -339,7 +339,7 @@ services.jarm.fingerprint: "00000000000000000041d00000041d9535d5979f591ae8e547c5
 
 </details>
 
-#### Covenant C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.body%3A+{%22Blazor%22,%20%22covenant.css%22}+and+tls.certificates.leaf_data.issuer.common_name%3A+%22Covenant%22%29&ref=awesome-censys-queries)
+#### Covenant C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%0A++++http.response.body%3A+%7B%22Blazor%22%2C+%22covenant.css%22%7D%0A++++and+tls.certificates.leaf_data.issuer.common_name%3A+%22Covenant%22%0A%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(
@@ -355,7 +355,7 @@ same_service(
 
 </details>
 
-#### PoshC2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.tls.certificates.leaf_data.subject.common_name%3D%22P18055077%22%20and%20services.tls.certificates.leaf_data.subject.province%3D%22Minnesota%22%20and%20services.tls.certificates.leaf_data.subject.locality%3D%22Minnetonka%22%20and%20services.tls.certificates.leaf_data.subject.organization%3D%22Pajfds%22%20and%20services.tls.certificates.leaf_data.subject.organizational_unit%3D%22Jethpro%22%29&ref=awesome-censys-queries)
+#### PoshC2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%0A++++services.tls.certificates.leaf_data.subject.common_name%3D%22P18055077%22+and%0A++++services.tls.certificates.leaf_data.subject.province%3D%22Minnesota%22+and%0A++++services.tls.certificates.leaf_data.subject.locality%3D%22Minnetonka%22+and%0A++++services.tls.certificates.leaf_data.subject.organization%3D%22Pajfds%22+and%0A++++services.tls.certificates.leaf_data.subject.organizational_unit%3D%22Jethpro%22%0A%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(
@@ -374,7 +374,7 @@ same_service(
 
 </details>
 
-#### Sliver C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%20services.tls.certificates.leaf_data.pubkey_bit_size%3A%202048%20and%20services.tls.certificates.leaf_data.subject.organization%3A%20%2F%28ACME%7CPartners%7CTech%7CCloud%7CSynergy%7CTest%7CDebug%29%3F%20%3F%28co%7Cllc%7Cinc%7Ccorp%7Cltd%29%3F%2F%20and%20services.jarm.fingerprint%3A%203fd21b20d00000021c43d21b21b43d41226dd5dfc615dd4a96265559485910%20and%20services.tls.certificates.leaf_data.subject.country%3A%20US%20and%20services.tls.certificates.leaf_data.subject.postal_code%3A%20%2F%3C1001-9999%3E%2F%20%29&ref=awesome-censys-queries)
+#### Sliver C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%0A++++services.tls.certificates.leaf_data.pubkey_bit_size%3A+2048+and%0A++++services.tls.certificates.leaf_data.subject.organization%3A+%2F%28ACME%7CPartners%7CTech%7CCloud%7CSynergy%7CTest%7CDebug%29%3F+%3F%28co%7Cllc%7Cinc%7Ccorp%7Cltd%29%3F%2F+and%0A++++services.jarm.fingerprint%3A+3fd21b20d00000021c43d21b21b43d41226dd5dfc615dd4a96265559485910+and%0A++++services.tls.certificates.leaf_data.subject.country%3A+US+and%0A++++services.tls.certificates.leaf_data.subject.postal_code%3A+%2F%3C1001-9999%3E%2F%0A%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(
@@ -387,7 +387,6 @@ same_service(
 ```
 
 > **Note**: This search uses regex and requires a paid account.
->
 > **Pro-Tip**: Try removing JARM to find even more Sliver instances.
 
 <details>
@@ -397,7 +396,7 @@ same_service(
 
 </details>
 
-#### EvilGinx2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6&ref=awesome-censys-queries)
+#### EvilGinx2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.jarm.fingerprint%3A+%2220d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6%22&ref=awesome-censys-queries)
 
 ```dsl
 services.jarm.fingerprint: "20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6"
@@ -410,7 +409,7 @@ services.jarm.fingerprint: "20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe0
 
 </details>
 
-#### Brute Ratel C4 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body_hash%3A+%22sha1%3A1a279f5df4103743b823ec2a6a08436fdf63fe30%22&ref=awesome-censys-queries)
+#### Brute Ratel C4 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.body_hash%3D%22sha1%3A1a279f5df4103743b823ec2a6a08436fdf63fe30%22&ref=awesome-censys-queries)
 
 ```dsl
 services.http.response.body_hash="sha1:1a279f5df4103743b823ec2a6a08436fdf63fe30"
@@ -423,7 +422,7 @@ services.http.response.body_hash="sha1:1a279f5df4103743b823ec2a6a08436fdf63fe30"
 
 </details>
 
-#### Empire C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service(services.http.response.body_hash%3A+%7B%22sha1%3Abc517bf173440dad15b99a051389fadc366d5df2%22%2C+%22sha1%3Adcb32e6256459d3660fdc90e4c79e95a921841cc%22%7D+and+services.http.response.headers.expires%3A+0+and+services.http.response.headers.cache_control%3A+%22*%22)&ref=awesome-censys-queries)
+#### Empire C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%0A++++services.http.response.body_hash%3A+%7B%22sha1%3Abc517bf173440dad15b99a051389fadc366d5df2%22%2C+%22sha1%3Adcb32e6256459d3660fdc90e4c79e95a921841cc%22%7D%0A++++and+services.http.response.headers.expires%3A+0%0A++++and+services.http.response.headers.cache_control%3A+%22%2A%22%0A%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(
@@ -453,7 +452,7 @@ services.banner_hashes: "sha256:7987d0c39c4839572ab88c6d82da01395f74e0c31f12d94c
 
 </details>
 
-#### NimPlant C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.Server:%20%22NimPlant%20C2%20Server%22%20or%20services.http.response.body_hashes:%20%22sha256:636d68bd1bc19d763de95d0a6406f4f77953f9973389857353ac445e2b6fff87%22&ref=awesome-censys-queries)
+#### NimPlant C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.http.response.headers.Server%3A+%22NimPlant+C2+Server%22+or+services.http.response.body_hashes%3A+%22sha256%3A636d68bd1bc19d763de95d0a6406f4f77953f9973389857353ac445e2b6fff87%22&ref=awesome-censys-queries)
 
 ```dsl
 services.http.response.headers.Server: "NimPlant C2 Server" or services.http.response.body_hashes: "sha256:636d68bd1bc19d763de95d0a6406f4f77953f9973389857353ac445e2b6fff87"
@@ -467,7 +466,7 @@ services.http.response.headers.Server: "NimPlant C2 Server" or services.http.res
 
 </details>
 
-#### RedGuard [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject_dn%3A+%22C%3DCN%2C+L%3DHangZhou%2C+O%3DAlibaba+%28China%29+Technology+Co.%5C%5C%2C+Ltd.%2C+CN%3D%5C*.aliyun.com%22&ref=awesome-censys-queries)
+#### RedGuard [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject_dn%3A+%22C%3DCN%2C+L%3DHangZhou%2C+O%3DAlibaba+%28China%29+Technology+Co.%5C%5C%2C+Ltd.%2C+CN%3D%5C%2A.aliyun.com%22&ref=awesome-censys-queries)
 
 ```dsl
 services.tls.certificates.leaf_data.subject_dn: "C=CN, L=HangZhou, O=Alibaba (China) Technology Co.\\, Ltd., CN=\*.aliyun.com"
@@ -507,7 +506,7 @@ services.tls.certificates.leaf_data.subject.common_name: "BitRAT"
 
 </details>
 
-#### OrcusRAT [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject.common_name:%20{%22Orcus%20Server%22,%20%22OrcusServerCertificate%22}&ref=awesome-censys-queries)
+#### OrcusRAT [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject.common_name%3A+%7B%22Orcus+Server%22%2C+%22OrcusServerCertificate%22%7D&ref=awesome-censys-queries)
 
 ```dsl
 services.tls.certificates.leaf_data.subject.common_name: {"Orcus Server", "OrcusServerCertificate"}
@@ -520,7 +519,7 @@ services.tls.certificates.leaf_data.subject.common_name: {"Orcus Server", "Orcus
 
 </details>
 
-#### QuasarRAT [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject.common_name:%20{%22Anony96%22,%20%22Quasar%20Server%20CA%22}&ref=awesome-censys-queries)
+#### QuasarRAT [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject.common_name%3A+%7B%22Anony96%22%2C+%22Quasar+Server+CA%22%7D&ref=awesome-censys-queries)
 
 ```dsl
 services.tls.certificates.leaf_data.subject.common_name: {"Anony96", "Quasar Server CA"}
@@ -533,7 +532,7 @@ services.tls.certificates.leaf_data.subject.common_name: {"Anony96", "Quasar Ser
 
 </details>
 
-#### NanoCore [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject.common_name:%20%22unk%22&ref=awesome-censys-queries)
+#### NanoCore [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject.common_name%3A+%22unk%22&ref=awesome-censys-queries)
 
 ```dsl
 services.tls.certificates.leaf_data.subject.common_name: "unk"
@@ -546,7 +545,7 @@ services.tls.certificates.leaf_data.subject.common_name: "unk"
 
 </details>
 
-#### DcRat [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject.common_name:%20%22DcRat%20Server%22&ref=awesome-censys-queries)
+#### DcRat [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject.common_name%3A+%22DcRat+Server%22&ref=awesome-censys-queries)
 
 ```dsl
 services.tls.certificates.leaf_data.subject.common_name: "DcRat Server"
@@ -559,7 +558,7 @@ services.tls.certificates.leaf_data.subject.common_name: "DcRat Server"
 
 </details>
 
-#### Deimos C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject_dn%3A+%22C%3DUS%2C+ST%3DMinnesota%2C+L%3DMinnetonka%2C+O%3DPajfds%2C+OU%3DJethpro%2C+CN%3DP18055077%22&ref=awesome-censys-queries)
+#### Deimos C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%28services.http.response.html_title%3D%22Deimos+C2%22+or+services.tls.certificates.leaf_data.subject.organization%3D%22Acme+Co%22%29+and+services.port%3A+8443%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service((services.http.response.html_title="Deimos C2" or services.tls.certificates.leaf_data.subject.organization="Acme Co") and services.port: 8443)
@@ -573,7 +572,7 @@ same_service((services.http.response.html_title="Deimos C2" or services.tls.cert
 
 </details>
 
-#### Posh C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service((services.http.response.html_title%3D%22Deimos+C2%22+or+services.tls.certificates.leaf_data.subject.organization%3D%22Acme+Co%22)+and+services.port%3A+8443)&ref=awesome-censys-queries)
+#### Posh C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject_dn%3A+%22C%3DUS%2C+ST%3DMinnesota%2C+L%3DMinnetonka%2C+O%3DPajfds%2C+OU%3DJethpro%2C+CN%3DP18055077%22&ref=awesome-censys-queries)
 
 ```dsl
 services.tls.certificates.leaf_data.subject_dn: "C=US, ST=Minnesota, L=Minnetonka, O=Pajfds, OU=Jethpro, CN=P18055077"
@@ -587,7 +586,7 @@ services.tls.certificates.leaf_data.subject_dn: "C=US, ST=Minnesota, L=Minnetonk
 
 </details>
 
-#### IcedID Banking Trojan [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject_dn:%20%22CN=localhost,%20C=AU,%20ST=Some-State,%20O=Internet%20Widgits%20Pty%20Ltd%22&ref=awesome-censys-queries)
+#### IcedID Banking Trojan [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.subject_dn%3A+%22CN%3Dlocalhost%2C+C%3DAU%2C+ST%3DSome-State%2C+O%3DInternet+Widgits+Pty+Ltd%22&ref=awesome-censys-queries)
 
 ```dsl
 services.tls.certificates.leaf_data.subject_dn: "CN=localhost, C=AU, ST=Some-State, O=Internet Widgits Pty Ltd"
@@ -601,7 +600,7 @@ services.tls.certificates.leaf_data.subject_dn: "CN=localhost, C=AU, ST=Some-Sta
 
 </details>
 
-#### Gozi Malware [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.issuer_dn%3A+%22C%3DXX%2C+ST%3D1%2C+L%3D1%2C+O%3D1%2C+OU%3D1%2C+CN%3D%5C*%22&ref=awesome-censys-queries)
+#### Gozi Malware [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.tls.certificates.leaf_data.issuer_dn%3A+%22C%3DXX%2C+ST%3D1%2C+L%3D1%2C+O%3D1%2C+OU%3D1%2C+CN%3D%5C%2A%22&ref=awesome-censys-queries)
 
 ```dsl
 services.tls.certificates.leaf_data.issuer_dn: "C=XX, ST=1, L=1, O=1, OU=1, CN=\*"
@@ -614,7 +613,7 @@ services.tls.certificates.leaf_data.issuer_dn: "C=XX, ST=1, L=1, O=1, OU=1, CN=\
 
 </details>
 
-#### Pupy RAT C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.headers.Etag%3D%22%5C%22aa3939fc357723135870d5036b12a67097b03309%5C%22%22+AND+services.http.response.headers.Server%3D%22nginx%2F1.13.8%22%29+OR+same_service%28services.tls.certificates.leaf_data.issuer.organization%3A%2F%5Ba-zA-Z%5D%7B10%7D%2F+AND++services.tls.certificates.leaf_data.subject.organization%3A%2F%5Ba-zA-Z%5D%7B10%7D%2F+AND+services.tls.certificates.leaf_data.subject.organizational_unit%3D%22CONTROL%22%29&ref=awesome-censys-queries)
+#### Pupy RAT C2 [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.headers.Etag%3D%22%5C%22aa3939fc357723135870d5036b12a67097b03309%5C%22%22+and+services.http.response.headers.Server%3D%22nginx%2F1.13.8%22%29+or+same_service%28services.tls.certificates.leaf_data.issuer.organization%3A%2F%5Ba-zA-Z%5D%7B10%7D%2F+and++services.tls.certificates.leaf_data.subject.organization%3A%2F%5Ba-zA-Z%5D%7B10%7D%2F+and+services.tls.certificates.leaf_data.subject.organizational_unit%3D%22CONTROL%22%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(services.http.response.headers.Etag="\"aa3939fc357723135870d5036b12a67097b03309\"" and services.http.response.headers.Server="nginx/1.13.8") or same_service(services.tls.certificates.leaf_data.issuer.organization:/[a-zA-Z]{10}/ and  services.tls.certificates.leaf_data.subject.organization:/[a-zA-Z]{10}/ and services.tls.certificates.leaf_data.subject.organizational_unit="CONTROL")
@@ -656,7 +655,7 @@ services.http.response.body: "Titan Stealer"
 
 </details>
 
-#### Open Directory Listing Host with Suspicious File Names in their Contents [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%28services.http.response.html_title%3A%22Index+of+%2F%22+or+services.http.response.html_title%3A%22Directory+Listing+for+%2F%22%29+and+services.http.response.body%3A+%2F.*%3F%28cve%7Cmetasploit%7Ccobaltstrike%7Csliver%7Ccovenant%7Cbrc4%7Cbrute-ratel%7Ccommander-runme%7Cbruteratel%7Cps2exe%7C%28badger%7Cshellcode%7Csc%7Cbeacon%7Cartifact%7Cpayload%7Cteamviewer%7Canydesk%7Cmimikatz%7Ccs%7Crclone%29%5C.%28exe%7Cps1%7Cvbs%7Cbin%7Cnupkg%29%29.*%2F%29&ref=awesome-censys-queries)
+#### Open Directory Listing Host with Suspicious File Names in their Contents [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28%0A++++%28services.http.response.html_title%3A%22Index+of+%2F%22+or+services.http.response.html_title%3A%22Directory+Listing+for+%2F%22%29%0A++++and+services.http.response.body%3A+%2F.%2A%3F%28cve%7Cmetasploit%7Ccobaltstrike%7Csliver%7Ccovenant%7Cbrc4%7Cbrute-ratel%7Ccommander-runme%7Cbruteratel%7Cps2exe%7C%28badger%7Cshellcode%7Csc%7Cbeacon%7Cartifact%7Cpayload%7Cteamviewer%7Canydesk%7Cmimikatz%7Ccs%7Crclone%29%5C.%28exe%7Cps1%7Cvbs%7Cbin%7Cnupkg%29%29.%2A%2F%0A%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(
@@ -697,7 +696,7 @@ services.http.response.body: '"couchdb": "Welcome"'
 
 ### Dashboards
 
-#### cAdvisor Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60cAdvisor+-+%2F%60+and+services.http.response.status_code%3D200+and+services.http.request.uri%3D%22*%2Fcontainers%2F%22%29&ref=awesome-censys-queries)
+#### cAdvisor Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60cAdvisor+-+%2F%60+and+services.http.response.status_code%3D200+and+services.http.request.uri%3D%22%2A%2Fcontainers%2F%22%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(services.http.response.html_title=`cAdvisor - /` and services.http.response.status_code=200 and services.http.request.uri="*/containers/")
@@ -710,7 +709,7 @@ same_service(services.http.response.html_title=`cAdvisor - /` and services.http.
 
 </details>
 
-#### HashiCorp Consul Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60Consul+by+HashiCorp%60+and+services.http.request.uri%3A+%22*%2Fui%2F%22%29&ref=awesome-censys-queries)
+#### HashiCorp Consul Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3D%60Consul+by+HashiCorp%60+and+services.http.request.uri%3A+%22%2A%2Fui%2F%22%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(services.http.response.html_title=`Consul by HashiCorp` and services.http.request.uri: "*/ui/")
@@ -723,7 +722,7 @@ same_service(services.http.response.html_title=`Consul by HashiCorp` and service
 
 </details>
 
-#### Netdata Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.Server%3D%22Netdata+Embedded+HTTP*%22+and+services.http.response.html_title%3D%22netdata+dashboard%22%29&ref=awesome-censys-queries)
+#### Netdata Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.headers.Server%3D%22Netdata+Embedded+HTTP%2A%22+and+services.http.response.html_title%3D%22netdata+dashboard%22%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(services.http.response.headers.Server="Netdata Embedded HTTP*" and services.http.response.html_title="netdata dashboard")
@@ -742,7 +741,7 @@ same_service(services.http.response.headers.Server="Netdata Embedded HTTP*" and 
 same_service(services.http.response.headers.unknown.name: "X-Rancher-Version" and services.http.response.html_title: "Loading&hellip;")
 ```
 
-#### Traefik Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.request.uri%3A+%22*%2Fdashboard%2F%22+and+services.http.response.html_title%3A+%22Traefik%22%29&ref=awesome-censys-queries)
+#### Traefik Dashboards [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.request.uri%3A+%22%2A%2Fdashboard%2F%22+and+services.http.response.html_title%3A+%22Traefik%22%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(services.http.request.uri: "*/dashboard/" and services.http.response.html_title: "Traefik")
@@ -755,7 +754,7 @@ same_service(services.http.request.uri: "*/dashboard/" and services.http.respons
 
 </details>
 
-#### Weave Scope [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22Weave+Scope%22+and+services.http.response.body%3D%22*WEAVEWORKS_CSRF*%22%29&ref=awesome-censys-queries)
+#### Weave Scope [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.http.response.html_title%3A+%22Weave+Scope%22+and+services.http.response.body%3D%22%2AWEAVEWORKS_CSRF%2A%22%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(services.http.response.html_title: "Weave Scope" and services.http.response.body="*WEAVEWORKS_CSRF*")
@@ -768,7 +767,7 @@ same_service(services.http.response.html_title: "Weave Scope" and services.http.
 
 </details>
 
-#### Coolify [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services%3A+(port%3A+8000+and+services.http.response.html_title%3A+%22Coolify%22))
+#### Coolify [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services%3A+%28port%3A+8000+and+services.http.response.html_title%3A+%22Coolify%22%29&ref=awesome-censys-queries)
 
 ```dsl
 services: (port: 8000 and services.http.response.html_title: "Coolify")
@@ -789,7 +788,7 @@ services: (port: 8000 and services.http.response.html_title: "Coolify")
 same_service(banner: "Counter-Strike" and service_name: VALVE)
 ```
 
-#### FiveM [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services%3A+%28port%3A+30120+and+http.response.headers%3A+%28key%3A+"Location"+and+value.headers%3A+"https%3A%2F%2Fcfx.re%2Fjoin%2F*"%29%29&ref=awesome-censys-queries)
+#### FiveM [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services%3A+%28port%3A+30120+and+http.response.headers%3A+%28key%3A+%22Location%22+and+value.headers%3A+%22https%3A%2F%2Fcfx.re%2Fjoin%2F%2A%22%29%29&ref=awesome-censys-queries)
 
 ```dsl
 services: (port: 30120 and http.response.headers: (key: "Location" and value.headers: "https://cfx.re/join/*"))
@@ -831,7 +830,7 @@ services.http.request.uri: "mythweb"
 
 <details>
     <summary markdown="span">Screenshot</summary>
-    <img src="./images/mythweb.png" alt="MythWeb" width="300px" />
+    <img src="./images/mythweb.png" alt="mythweb" width="500px" />
 </details>
 
 <details>
@@ -863,7 +862,7 @@ services.http.response.html_title: "Swagger UI - "
 
 <details>
     <summary markdown="span">Screenshot</summary>
-    <img src="./images/swagger-ui.png" alt="Swagger UI" width="300px" />
+    <img src="./images/swagger-ui.png" alt="swagger-ui" width="500px" />
 </details>
 
 <details>
@@ -886,7 +885,7 @@ services.http.response.html_title: "Home - Mongo Express"
 
 </details>
 
-#### shell2http [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=INCLUDE&q=services.http.response.html_title%3A+%22shell2http%22&ref=awesome-censys-queries)
+#### shell2http [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=services.http.response.html_title%3A+%22shell2http%22&ref=awesome-censys-queries)
 
 ```dsl
 services.http.response.html_title: "shell2http"
@@ -900,7 +899,7 @@ same_service(services.banner: "Enter 'help' for a list of built-in commands" and
 
 <details>
     <summary markdown="span">Screenshot</summary>
-    <img src="./images/busybox.png" alt="Busybox" width="300px" />
+    <img src="./images/busybox.png" alt="busybox" width="500px" />
 </details>
 
 #### Unauthenticated Redis Servers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.redis.ping_response%3A+%22PONG%22&ref=awesome-censys-queries)
@@ -909,7 +908,7 @@ same_service(services.banner: "Enter 'help' for a list of built-in commands" and
 services.redis.ping_response: "PONG"
 ```
 
-#### Misconfigured Kubernetes Installations [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.kubernetes.pod_names%3A+*&ref=awesome-censys-queries)
+#### Misconfigured Kubernetes Installations [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.kubernetes.pod_names%3A+%2A&ref=awesome-censys-queries)
 
 ```dsl
 services.kubernetes.pod_names: *
@@ -921,7 +920,7 @@ services.kubernetes.pod_names: *
 services.http.response.body: "The wp-config.php creation script uses this file"
 ```
 
-#### Unconfigured AdGuard [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3A+%22Setup+AdGuard+Home%22+and+services.http.request.uri%3D%22*%2Finstall.html%22%29&ref=awesome-censys-queries)
+#### Unconfigured AdGuard [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=same_service%28services.http.response.html_title%3A+%22Setup+AdGuard+Home%22+and+services.http.request.uri%3D%22%2A%2Finstall.html%22%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(services.http.response.html_title: "Setup AdGuard Home" and services.http.request.uri="*/install.html")
@@ -948,7 +947,7 @@ services.http.response.body: "<h2>vmagent</h2>"
 
 <details>
     <summary markdown="span">Screenshot</summary>
-    <img src="./images/vmagent.png" alt="vmagent" width="300px" />
+    <img src="./images/vmagent.png" alt="vmagent" width="500px" />
 </details>
 
 <details>
@@ -958,7 +957,7 @@ services.http.response.body: "<h2>vmagent</h2>"
 
 </details>
 
-#### SonarQube [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.html_title%3A+%22SonarQube%22+and+http.response.status_code%3A+200+and+http.response.protocol%09%3A+%22HTTP%2F1.1%22%29&ref=awesome-censys-queries)
+#### SonarQube [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28http.response.html_title%3A+%22SonarQube%22+and+http.response.status_code%3A+200+and+http.response.protocol%3A+%22HTTP%2F1.1%22%29&ref=awesome-censys-queries)
 
 ```dsl
 same_service(http.response.html_title: "SonarQube" and http.response.status_code: 200 and http.response.protocol: "HTTP/1.1")
@@ -991,7 +990,7 @@ services.truncated: true
 location.country: "North Korea"
 ```
 
-#### Hosts that identify as US government or military [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=dns.names%3A+*.gov+or+dns.names%3A+*.mil+or+name%3A+*.gov+or+name%3A+*.mil&ref=awesome-censys-queries)
+#### Hosts that identify as US government or military [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=dns.names%3A+%2A.gov+or+dns.names%3A+%2A.mil+or+name%3A+%2A.gov+or+name%3A+%2A.mil&ref=awesome-censys-queries)
 
 ```dsl
 dns.names: *.gov or dns.names: *.mil or name: *.gov or name: *.mil
@@ -1004,10 +1003,9 @@ same_service(services.port: 53 and not services.service_name: DNS) and services.
 ```
 
 > Alternative syntax without the `services.` prefix inside the `same_service` function:
->
 > ```dsl
-> same_service(port: 53 and not service_name: DNS) and services.truncated: false
-> ```
+same_service(port: 53 and not service_name: DNS) and services.truncated: false
+```
 
 #### Non-Standard Services Listening on Common Ports [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.port%3A+%7B21%2C+22%2C+80%7D+and+not+services.service_name%3A+%7BHTTP%2C+SSH%2C+FTP%2C+UNKNOWN%7D%29+and+services.truncated%3A+false&ref=awesome-censys-queries)
 
@@ -1015,16 +1013,16 @@ same_service(services.port: 53 and not services.service_name: DNS) and services.
 same_service(services.port: {21, 22, 80} and not services.service_name: {HTTP, SSH, FTP, UNKNOWN}) and services.truncated: false
 ```
 
-#### Services Listening on Port 22 that are not SSH [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28not+services.service_name%3A+%7BSSH%7D+and+services.port%3A+22+and+not+services.banner%3A+%7B%22Connection+refused%22%2C+%22SSH-%22%2C+%22Exceeded+MaxStartups%22%2C+%22Too+many+users%22%2C+%22Connection+closed+by+server%22%7D%29+and+services.truncated%3A+false&ref=awesome-censys-queries)
+#### Services Listening on Port 22 that are not SSH [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.port%3A+22+and+not+services.service_name%3A+%7BSSH%7D+and+not+services.banner%3A+%7B%22Connection+refused%22%2C+%22SSH-%22%2C+%22Exceeded+MaxStartups%22%2C+%22Too+many+users%22%2C+%22Connection+closed+by+server%22%7D%29+and+services.truncated%3A+false&ref=awesome-censys-queries)
 
 ```dsl
 same_service(services.port: 22 and not services.service_name: {SSH} and not services.banner: {"Connection refused", "SSH-", "Exceeded MaxStartups", "Too many users", "Connection closed by server"}) and services.truncated: false
 ```
 
-#### Services Listening on 80 or 443 that are not HTTP or HTTPS (or UNKNOWN with TLS) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=not+same_service%28services.port%3A+443+and+services.name%3A+UNKNOWN+and+services.tls.certificates.leaf_data.subject_dn%3A+*+%29+and+same_service%28services.port%3A+%7B80%2C+443%7D+and+not+services.service_name%3A+%7BKUBERNETES%2C+ANYCONNECT%2C+OPENVPN%2C+HTTP%7D+and+not+services.banner%3A+%E2%80%9CHTTP%2F%E2%80%9D+%29++and+services.truncated%3A+false&ref=awesome-censys-queries)
+#### Services Listening on 80 or 443 that are not HTTP or HTTPS (or UNKNOWN with TLS) [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=not+same_service%28services.port%3A+443+and+services.name%3A+UNKNOWN+and+services.tls.certificates.leaf_data.subject_dn%3A+%2A%29+and+same_service%28services.port%3A+%7B80%2C+443%7D+and+not+services.service_name%3A+%7BKUBERNETES%2C+ANYCONNECT%2C+OPENVPN%2C+HTTP%7D+and+not+services.banner%3A+%22HTTP%2F%22%29+and+services.truncated%3A+false&ref=awesome-censys-queries)
 
 ```dsl
-not same_service(services.port: 443 and services.name: UNKNOWN and services.tls.certificates.leaf_data.subject_dn: *) and same_service(services.port: {80, 443} and not services.service_name: {KUBERNETES, ANYCONNECT, OPENVPN, HTTP} and not services.banner: “HTTP/”) and services.truncated: false
+not same_service(services.port: 443 and services.name: UNKNOWN and services.tls.certificates.leaf_data.subject_dn: *) and same_service(services.port: {80, 443} and not services.service_name: {KUBERNETES, ANYCONNECT, OPENVPN, HTTP} and not services.banner: "HTTP/") and services.truncated: false
 ```
 
 ## Credits
