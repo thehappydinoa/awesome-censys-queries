@@ -398,6 +398,11 @@
           "title": "FiveM",
           "query": "services: (port: 30120 and http.response.headers: (key: \"Location\" and value.headers: \"https://cfx.re/join/*\"))",
           "notes": []
+        },
+        {
+          "title": "Minecraft Servers",
+          "query": "services.service_name: \"MINECRAFT\"",
+          "notes": []
         }
       ]
     },

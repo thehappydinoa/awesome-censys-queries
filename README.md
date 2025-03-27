@@ -795,6 +795,12 @@ same_service(banner: "Counter-Strike" and service_name: VALVE)
 services: (port: 30120 and http.response.headers: (key: "Location" and value.headers: "https://cfx.re/join/*"))
 ```
 
+#### Minecraft Servers [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.service_name%3A+%22MINECRAFT%22&ref=awesome-censys-queries)
+
+```dsl
+services.service_name: "MINECRAFT"
+```
+
 ### Media Servers
 
 #### Plex Media Server [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=services.software.vendor%3A+%22Plex%22&ref=awesome-censys-queries)
