@@ -79,6 +79,7 @@ Interested in contributing in another way? [See the contributing guidelines](CON
 
 - [Censys Search](https://search.censys.io?ref=awesome-censys-queries)
 - [CensysGPT Beta - AI Generated Queries](https://gpt.censys.io?utm_source=github&utm_medium=awesome-censys-queries&utm_campaign=awesome-censys-queries)
+- [Legacy Search Queries](https://github.com/thehappydinoa/awesome-censys-queries/tree/legacy-search-queries) - For queries compatible with the legacy Censys search syntax
 
 ## Key
 
