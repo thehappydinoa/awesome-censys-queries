@@ -17,7 +17,9 @@
         {
           "title": "Gas Station Pump Controllers (ATGs)",
           "query": "(same_service(port: 10001 and banner: \"IN-TANK INVENTORY\") or services.service_name: ATG) and services.truncated: false",
-          "notes": ["**Pro-Tip**: Add `services.truncated: false` to your query to exclude honeypots (Hosts with 100+ services)."],
+          "notes": [
+            "**Pro-Tip**: Add `services.truncated: false` to your query to exclude honeypots (Hosts with 100+ services)."
+          ],
           "screenshot": "./images/atg.png"
         },
         {
@@ -29,13 +31,17 @@
           "title": "Carel PlantVisor",
           "query": "services.http.response.html_title: \"CAREL Pl@ntVisor\"",
           "notes": [],
-          "references": ["https://www.carel.com/product/plantvisor"]
+          "references": [
+            "https://www.carel.com/product/plantvisor"
+          ]
         },
         {
           "title": "C4 Max Vehicle GPS",
           "query": "services.banner: \"[1m[35mWelcome on console\"",
           "notes": [],
-          "references": ["https://wiki.neweagle.net/ProductDocumentation/Telematics/C4MAX_datasheet.pdf"]
+          "references": [
+            "https://wiki.neweagle.net/ProductDocumentation/Telematics/C4MAX_datasheet.pdf"
+          ]
         },
         {
           "title": "GaugeTech Electricity Meters",
@@ -46,7 +52,9 @@
         {
           "title": "XZERES Wind Turbines",
           "query": "services.http.response.html_title: \"XZERES Wind\"",
-          "notes": ["**Note**: This query works best with virtual hosts included."],
+          "notes": [
+            "**Note**: This query works best with virtual hosts included."
+          ],
           "screenshot": "./images/xzeres-wind-turbine.png",
           "virtual_hosts": true
         },
@@ -54,13 +62,17 @@
           "title": "Nordex Wind Turbine Farms",
           "query": "services.http.response.html_title: \"Nordex Control\" or services.tls.certificates.leaf_data.issuer.domain_component: \"NORDEX-AG\"",
           "notes": [],
-          "references": ["https://www.cisa.gov/news-events/ics-alerts/ics-alert-10-307-01"]
+          "references": [
+            "https://www.cisa.gov/news-events/ics-alerts/ics-alert-10-307-01"
+          ]
         },
         {
           "title": "Saferoads VMS Signs",
           "query": "services.software: (vendor: \"Saferoads\" and product: \"VMS\")",
           "notes": [],
-          "references": ["https://www.saferoads.com.au/zone-vms"]
+          "references": [
+            "https://www.saferoads.com.au/zone-vms"
+          ]
         }
       ]
     },
@@ -87,7 +99,9 @@
           "query": "services.http.response.html_title: \"Emerson Site Supervisor\"",
           "notes": [],
           "screenshot": "./images/emerson-site-supervisor.png",
-          "references": ["https://www.emerson.com/en-us/site-supervisor-5385648A"]
+          "references": [
+            "https://www.emerson.com/en-us/site-supervisor-5385648A"
+          ]
         },
         {
           "title": "Brightsign Digital Sign",
@@ -99,19 +113,25 @@
           "query": "same_service(services.http.response.headers.Server=\"CAL1.0\" and services.http.response.status_code: 200)",
           "notes": [],
           "screenshot": "./images/elnet.png",
-          "references": ["http://www.elnet.cc/"]
+          "references": [
+            "http://www.elnet.cc/"
+          ]
         },
         {
           "title": "Nethix Wireless Controller",
           "query": "services.http.response.headers.set_cookie: \"NethixSession\"",
           "notes": [],
-          "references": ["https://nethix.com/en/"]
+          "references": [
+            "https://nethix.com/en/"
+          ]
         },
         {
           "title": "Compromised Mikrotik Router",
           "query": "services.service_name: MIKROTIK_BW and services.pptp.hostname: \"HACKED\"",
           "notes": [],
-          "references": ["https://thehackernews.com/2021/12/over-300000-mikrotik-devices-found.html"]
+          "references": [
+            "https://thehackernews.com/2021/12/over-300000-mikrotik-devices-found.html"
+          ]
         }
       ]
     },
@@ -142,12 +162,16 @@
           "title": "Merlin C2",
           "query": "services.jarm.fingerprint: \"29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38\"",
           "notes": [],
-          "references": ["https://github.com/Ne0nd0g/merlin"]
+          "references": [
+            "https://github.com/Ne0nd0g/merlin"
+          ]
         },
         {
           "title": "Mythic C2",
           "query": "same_service(port: 7443 and tls.certificates.leaf_data.subject.organization: \"Mythic\")",
-          "notes": ["**Note**: When using the `same_service` operator, the initial `services.` prefix is optional."],
+          "notes": [
+            "**Note**: When using the `same_service` operator, the initial `services.` prefix is optional."
+          ],
           "references": [
             "https://github.com/its-a-feature/Mythic",
             "https://michaelkoczwara.medium.com/hunting-c2-with-shodan-223ca250d06f"
@@ -157,19 +181,25 @@
           "title": "Deimos C2",
           "query": "services.jarm.fingerprint: \"00000000000000000041d00000041d9535d5979f591ae8e547c5e5743e5b64\"",
           "notes": [],
-          "references": ["https://github.com/DeimosC2/DeimosC2"]
+          "references": [
+            "https://github.com/DeimosC2/DeimosC2"
+          ]
         },
         {
           "title": "Covenant C2",
           "query": "same_service(\n    http.response.body: {\"Blazor\", \"covenant.css\"}\n    and tls.certificates.leaf_data.issuer.common_name: \"Covenant\"\n)",
           "notes": [],
-          "references": ["https://github.com/cobbr/Covenant"]
+          "references": [
+            "https://github.com/cobbr/Covenant"
+          ]
         },
         {
           "title": "PoshC2",
           "query": "same_service(\n    services.tls.certificates.leaf_data.subject.common_name=\"P18055077\" and\n    services.tls.certificates.leaf_data.subject.province=\"Minnesota\" and\n    services.tls.certificates.leaf_data.subject.locality=\"Minnetonka\" and\n    services.tls.certificates.leaf_data.subject.organization=\"Pajfds\" and\n    services.tls.certificates.leaf_data.subject.organizational_unit=\"Jethpro\"\n)",
           "notes": [],
-          "references": ["https://github.com/nettitude/PoshC2"]
+          "references": [
+            "https://github.com/nettitude/PoshC2"
+          ]
         },
         {
           "title": "Sliver C2",
@@ -178,31 +208,41 @@
             "**Note**: This search uses regex and requires a paid account.",
             "**Pro-Tip**: Try removing JARM to find even more Sliver instances."
           ],
-          "references": ["https://github.com/BishopFox/sliver"]
+          "references": [
+            "https://github.com/BishopFox/sliver"
+          ]
         },
         {
           "title": "EvilGinx2",
           "query": "services.jarm.fingerprint: \"20d14d20d21d20d20c20d14d20d20daddf8a68a1444c74b6dbe09910a511e6\"",
           "notes": [],
-          "references": ["https://github.com/kgretzky/evilginx2"]
+          "references": [
+            "https://github.com/kgretzky/evilginx2"
+          ]
         },
         {
           "title": "Brute Ratel C4",
           "query": "services.http.response.body_hash=\"sha1:1a279f5df4103743b823ec2a6a08436fdf63fe30\"",
           "notes": [],
-          "references": ["https://bruteratel.com"]
+          "references": [
+            "https://bruteratel.com"
+          ]
         },
         {
           "title": "Empire C2",
           "query": "same_service(\n    services.http.response.body_hash: {\"sha1:bc517bf173440dad15b99a051389fadc366d5df2\", \"sha1:dcb32e6256459d3660fdc90e4c79e95a921841cc\"}\n    and services.http.response.headers.expires: 0\n    and services.http.response.headers.cache_control: \"*\"\n)",
           "notes": [],
-          "references": ["https://bc-security.gitbook.io/empire-wiki/"]
+          "references": [
+            "https://bc-security.gitbook.io/empire-wiki/"
+          ]
         },
         {
           "title": "Raccoon Stealer V2 (RecordBreaker C2)",
           "query": "services.banner_hashes: \"sha256:7987d0c39c4839572ab88c6d82da01395f74e0c31f12d94c58d0e1bed0b0c75c\"",
           "notes": [],
-          "references": ["https://twitter.com/1zrr4h/status/1593377638504087553"]
+          "references": [
+            "https://twitter.com/1zrr4h/status/1593377638504087553"
+          ]
         },
         {
           "title": "NimPlant C2",
@@ -226,37 +266,49 @@
           "title": "AsyncRAT",
           "query": "services.tls.certificates.leaf_data.subject.common_name: \"AsyncRAT Server\"",
           "notes": [],
-          "references": ["https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"]
+          "references": [
+            "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"
+          ]
         },
         {
           "title": "BitRAT",
           "query": "services.tls.certificates.leaf_data.subject.common_name: \"BitRAT\"",
           "notes": [],
-          "references": ["https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"]
+          "references": [
+            "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"
+          ]
         },
         {
           "title": "OrcusRAT",
           "query": "services.tls.certificates.leaf_data.subject.common_name: {\"Orcus Server\", \"OrcusServerCertificate\"}",
           "notes": [],
-          "references": ["https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"]
+          "references": [
+            "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"
+          ]
         },
         {
           "title": "QuasarRAT",
           "query": "services.tls.certificates.leaf_data.subject.common_name: {\"Anony96\", \"Quasar Server CA\"}",
           "notes": [],
-          "references": ["https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"]
+          "references": [
+            "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"
+          ]
         },
         {
           "title": "NanoCore",
           "query": "services.tls.certificates.leaf_data.subject.common_name: \"unk\"",
           "notes": [],
-          "references": ["https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"]
+          "references": [
+            "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"
+          ]
         },
         {
           "title": "DcRat",
           "query": "services.tls.certificates.leaf_data.subject.common_name: \"DcRat Server\"",
           "notes": [],
-          "references": ["https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"]
+          "references": [
+            "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"
+          ]
         },
         {
           "title": "Deimos C2",
@@ -289,13 +341,19 @@
           "title": "Gozi Malware",
           "query": "services.tls.certificates.leaf_data.issuer_dn: \"C=XX, ST=1, L=1, O=1, OU=1, CN=\\*\"",
           "notes": [],
-          "references": ["https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"]
+          "references": [
+            "https://www.trendmicro.com/content/dam/trendmicro/global/en/research/21/i/ssl-tls-technical-brief/ssl-tls-technical-brief.pdf"
+          ]
         },
         {
           "title": "Pupy RAT C2",
           "query": "same_service(services.http.response.headers.Etag=\"\\\"aa3939fc357723135870d5036b12a67097b03309\\\"\" and services.http.response.headers.Server=\"nginx/1.13.8\") or same_service(services.tls.certificates.leaf_data.issuer.organization:/[a-zA-Z]{10}/ and  services.tls.certificates.leaf_data.subject.organization:/[a-zA-Z]{10}/ and services.tls.certificates.leaf_data.subject.organizational_unit=\"CONTROL\")",
-          "notes": ["**Note**: This search uses regex and requires a paid account."],
-          "references": ["https://github.com/n1nj4sec/pupy"]
+          "notes": [
+            "**Note**: This search uses regex and requires a paid account."
+          ],
+          "references": [
+            "https://github.com/n1nj4sec/pupy"
+          ]
         },
         {
           "title": "Responder Server",
@@ -310,18 +368,24 @@
           "title": "Titan Stealer C2",
           "query": "services.http.response.body: \"Titan Stealer\"",
           "notes": [],
-          "references": ["https://twitter.com/BushidoToken/status/1633458241421320192"]
+          "references": [
+            "https://twitter.com/BushidoToken/status/1633458241421320192"
+          ]
         },
         {
           "title": "Open Directory Listing Host with Suspicious File Names in their Contents",
           "query": "same_service(\n    (services.http.response.html_title:\"Index of /\" or services.http.response.html_title:\"Directory Listing for /\")\n    and services.http.response.body: /.*?(cve|metasploit|cobaltstrike|sliver|covenant|brc4|brute-ratel|commander-runme|bruteratel|ps2exe|(badger|shellcode|sc|beacon|artifact|payload|teamviewer|anydesk|mimikatz|cs|rclone)\\.(exe|ps1|vbs|bin|nupkg)).*/\n)",
-          "notes": ["**Note**: This search uses regex and requires a paid account."]
+          "notes": [
+            "**Note**: This search uses regex and requires a paid account."
+          ]
         },
         {
           "title": "Splunk",
           "query": "services.software.product: \"Splunk\"",
           "notes": [],
-          "references": ["https://www.splunk.com"]
+          "references": [
+            "https://www.splunk.com"
+          ]
         }
       ]
     },
@@ -332,7 +396,9 @@
           "title": "Exposed CouchDB Servers",
           "query": "services.http.response.body: '\"couchdb\": \"Welcome\"'",
           "notes": [],
-          "references": ["https://couchdb.apache.org/"]
+          "references": [
+            "https://couchdb.apache.org/"
+          ]
         }
       ]
     },
@@ -343,21 +409,27 @@
           "title": "cAdvisor Dashboards",
           "query": "same_service(services.http.response.html_title=`cAdvisor - /` and services.http.response.status_code=200 and services.http.request.uri=\"*/containers/\")",
           "notes": [],
-          "references": ["https://github.com/google/cadvisor"],
+          "references": [
+            "https://github.com/google/cadvisor"
+          ],
           "virtual_hosts": true
         },
         {
           "title": "HashiCorp Consul Dashboards",
           "query": "same_service(services.http.response.html_title=`Consul by HashiCorp` and services.http.request.uri: \"*/ui/\")",
           "notes": [],
-          "references": ["https://www.consul.io/"],
+          "references": [
+            "https://www.consul.io/"
+          ],
           "virtual_hosts": true
         },
         {
           "title": "Netdata Dashboards",
           "query": "same_service(services.http.response.headers.Server=\"Netdata Embedded HTTP*\" and services.http.response.html_title=\"netdata dashboard\")",
           "notes": [],
-          "references": ["https://www.netdata.cloud/"],
+          "references": [
+            "https://www.netdata.cloud/"
+          ],
           "virtual_hosts": true
         },
         {
@@ -370,19 +442,25 @@
           "title": "Traefik Dashboards",
           "query": "same_service(services.http.request.uri: \"*/dashboard/\" and services.http.response.html_title: \"Traefik\")",
           "notes": [],
-          "references": ["https://github.com/traefik/traefik"]
+          "references": [
+            "https://github.com/traefik/traefik"
+          ]
         },
         {
           "title": "Weave Scope",
           "query": "same_service(services.http.response.html_title: \"Weave Scope\" and services.http.response.body=\"*WEAVEWORKS_CSRF*\")",
           "notes": [],
-          "references": ["https://www.weave.works/oss/scope/"]
+          "references": [
+            "https://www.weave.works/oss/scope/"
+          ]
         },
         {
           "title": "Coolify",
           "query": "services: (port: 8000 and services.http.response.html_title: \"Coolify\")",
           "notes": [],
-          "references": ["https://coolify.io/"]
+          "references": [
+            "https://coolify.io/"
+          ]
         }
       ]
     },
@@ -413,20 +491,26 @@
           "title": "Plex Media Server",
           "query": "services.software.vendor: \"Plex\"",
           "notes": [],
-          "references": ["https://plex.tv/"]
+          "references": [
+            "https://plex.tv/"
+          ]
         },
         {
           "title": "Jellyfin Media Server",
           "query": "services.software.vendor: \"Jellyfin\"",
           "notes": [],
-          "references": ["https://jellyfin.org/"]
+          "references": [
+            "https://jellyfin.org/"
+          ]
         },
         {
           "title": "MythWeb",
           "query": "services.http.request.uri: \"mythweb\"",
           "notes": [],
           "screenshot": "./images/mythweb.png",
-          "references": ["https://github.com/MythTV/mythweb"]
+          "references": [
+            "https://github.com/MythTV/mythweb"
+          ]
         }
       ]
     },
@@ -448,13 +532,17 @@
           "query": "services.http.response.html_title: \"Swagger UI - \"",
           "notes": [],
           "screenshot": "./images/swagger-ui.png",
-          "references": ["https://swagger.io/tools/swagger-ui/"]
+          "references": [
+            "https://swagger.io/tools/swagger-ui/"
+          ]
         },
         {
           "title": "Mongo Express Admin Interface",
           "query": "services.http.response.html_title: \"Home - Mongo Express\"",
           "notes": [],
-          "references": ["https://github.com/mongo-express/mongo-express"]
+          "references": [
+            "https://github.com/mongo-express/mongo-express"
+          ]
         },
         {
           "title": "shell2http",
@@ -487,7 +575,9 @@
           "title": "Unconfigured AdGuard",
           "query": "same_service(services.http.response.html_title: \"Setup AdGuard Home\" and services.http.request.uri=\"*/install.html\")",
           "notes": [],
-          "references": ["https://adguard.com/en/welcome.html"],
+          "references": [
+            "https://adguard.com/en/welcome.html"
+          ],
           "virtual_hosts": true
         },
         {
@@ -500,13 +590,17 @@
           "query": "services.http.response.body: \"<h2>vmagent</h2>\"",
           "notes": [],
           "screenshot": "./images/vmagent.png",
-          "references": ["https://docs.victoriametrics.com/vmagent.html"]
+          "references": [
+            "https://docs.victoriametrics.com/vmagent.html"
+          ]
         },
         {
           "title": "SonarQube",
           "query": "same_service(http.response.html_title: \"SonarQube\" and http.response.status_code: 200 and http.response.protocol: \"HTTP/1.1\")",
           "notes": [],
-          "references": ["https://www.sonarqube.org/"]
+          "references": [
+            "https://www.sonarqube.org/"
+          ]
         }
       ]
     },
@@ -581,4 +675,4 @@
       "https://michaelkoczwara.medium.com/hunting-c2-with-shodan-223ca250d06f"
     ]
   }
-} 
+}
