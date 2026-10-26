@@ -1010,8 +1010,11 @@ same_service(services.port: 53 and not services.service_name: DNS) and services.
 ```
 
 > Alternative syntax without the `services.` prefix inside the `same_service` function:
+>
 > ```dsl
+>
 same_service(port: 53 and not service_name: DNS) and services.truncated: false
+
 ```
 
 #### Non-Standard Services Listening on Common Ports [🔎 &#x2192;](https://search.censys.io/search?resource=hosts&q=same_service%28services.port%3A+%7B21%2C+22%2C+80%7D+and+not+services.service_name%3A+%7BHTTP%2C+SSH%2C+FTP%2C+UNKNOWN%7D%29+and+services.truncated%3A+false&ref=awesome-censys-queries)
